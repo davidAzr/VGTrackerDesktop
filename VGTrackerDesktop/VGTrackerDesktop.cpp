@@ -9,7 +9,7 @@ VGTrackerDesktop::VGTrackerDesktop(QWidget *parent)
 	connect(this->m_ui.bt_loadCyber, &QPushButton::clicked, this, &VGTrackerDesktop::bt_loadCyberOnClick);
 	connect(this->m_ui.bt_loadMass, &QPushButton::clicked, this, &VGTrackerDesktop::bt_loadMassOnClick);
 
-	for (auto i = 0; i < 20; ++i)
+	for (auto i = 0; i < 50; ++i)
 	{
 		std::string itemNameStr = "prueba de juego" + std::to_string(i);
 		CoverListItem* newRealItem = new CoverListItem();

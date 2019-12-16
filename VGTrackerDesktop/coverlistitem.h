@@ -14,6 +14,9 @@ public:
 	CoverListItem();
 	~CoverListItem();
 
+protected slots:
+	//void resizeEvent(QResizeEvent *event) override;
+
 protected:
 	Ui::coverListItem m_ui;
 };
