@@ -3,6 +3,8 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_VGTrackerDesktop.h"
 
+#include "videogame.h"
+
 class VGTrackerDesktop : public QMainWindow
 {
 	Q_OBJECT
@@ -10,6 +12,14 @@ class VGTrackerDesktop : public QMainWindow
 public:
 	VGTrackerDesktop(QWidget *parent = Q_NULLPTR);
 
+protected slots:
+	void bt_loadWitcherOnClick();
+	void bt_loadCyberOnClick();
+	void bt_loadMassOnClick();
+
 private:
-	Ui::VGTrackerDesktopClass ui;
+	Videogame m_videogame;
+	Ui::VGTrackerDesktopClass m_ui;
+
+	void UpdateGameInfo();
 };

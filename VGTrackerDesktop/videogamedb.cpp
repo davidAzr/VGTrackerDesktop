@@ -1,4 +1,5 @@
 #include "videogamedb.h"
+#include "videogame.h"
 
 VideogameDB::VideogameDB()
 {
@@ -9,7 +10,7 @@ VideogameDB::VideogameDB()
 bool VideogameDB::Save(Videogame * videogame)
 {
 	if (m_conn) {
-		std::string query = "INSERT INTO Videogames VALUES ('" + videogame->GetTitle() + "', '" + videogame->GetSummary() + "', '" + videogame->GetReleaseDate() + "');";
+		std::string query = "INSERT INTO Videogame VALUES ('" + videogame->GetTitle() + "', '" + videogame->GetSummary() + "', '" + videogame->GetReleaseDate() + "');";
 		const char* q = query.c_str();
 		int qstate = mysql_query(m_conn, q);
 		if (!qstate) {
@@ -22,7 +23,7 @@ bool VideogameDB::Save(Videogame * videogame)
 bool VideogameDB::Update(Videogame * videogame)
 {
 	if (m_conn) {
-		std::string query = "UPDATE Videogames SET summary='" + videogame->GetSummary() + "', releaseDate='" + videogame->GetReleaseDate() + " WHERE title='" + videogame->GetTitle() + "';";
+		std::string query = "UPDATE Videogame SET summary='" + videogame->GetSummary() + "', releaseDate='" + videogame->GetReleaseDate() + " WHERE title='" + videogame->GetTitle() + "';";
 		const char* q = query.c_str();
 		int qstate = mysql_query(m_conn, q);
 		if (!qstate) {
@@ -35,7 +36,7 @@ bool VideogameDB::Update(Videogame * videogame)
 Videogame VideogameDB::Read(std::string title) {
 	Videogame videogame;
 	if (m_conn) {
-		std::string query = "SELECT * FROM Videogames WHERE title='" + title + "';";
+		std::string query = "SELECT * FROM Videogame WHERE title='" + title + "';";
 		const char* q = query.c_str();
 		int qstate = mysql_query(m_conn, q);
 		if (!qstate) {

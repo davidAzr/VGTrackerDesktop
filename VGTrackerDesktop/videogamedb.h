@@ -3,7 +3,7 @@
 #include <iostream>
 #include <mysql.h>
 
-#include "videogame.h"
+class Videogame;
 
 class VideogameDB
 {

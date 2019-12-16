@@ -28,7 +28,7 @@ public:
 	bool Update() {
 		return m_vgDb.Update(this);
 	}
-	bool Read(std::string title) {
+	void Read(std::string title) {
 		*this = m_vgDb.Read(title);
 	}
 
