@@ -1,5 +1,6 @@
 #include "VGTrackerDesktop.h"
-
+#include "coverlistitem.h"
+#include <fstream>
 VGTrackerDesktop::VGTrackerDesktop(QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -7,6 +8,16 @@ VGTrackerDesktop::VGTrackerDesktop(QWidget *parent)
 	connect(this->m_ui.bt_loadWitcher, &QPushButton::clicked, this, &VGTrackerDesktop::bt_loadWitcherOnClick);
 	connect(this->m_ui.bt_loadCyber, &QPushButton::clicked, this, &VGTrackerDesktop::bt_loadCyberOnClick);
 	connect(this->m_ui.bt_loadMass, &QPushButton::clicked, this, &VGTrackerDesktop::bt_loadMassOnClick);
+
+	for (auto i = 0; i < 20; ++i)
+	{
+		std::string itemNameStr = "prueba de juego" + std::to_string(i);
+		CoverListItem* newRealItem = new CoverListItem();
+		QListWidgetItem* newItem = new QListWidgetItem();
+		newItem->setSizeHint(newRealItem->sizeHint());
+		m_ui.lw_library->addItem(newItem);
+		m_ui.lw_library->setItemWidget(newItem, newRealItem);
+	}
 }
 
 void VGTrackerDesktop::bt_loadWitcherOnClick()
