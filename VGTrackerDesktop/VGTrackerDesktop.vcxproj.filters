@@ -31,6 +31,12 @@
     <ClCompile Include="VGTrackerDesktop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="videogame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="videogamedb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="VGTrackerDesktop.h">
@@ -49,5 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VGTrackerDesktop.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="videogame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="videogamedb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
