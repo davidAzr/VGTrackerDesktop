@@ -33,13 +33,13 @@ public:
 	}
 
 	// Getters & setters
-	std::string GetSummary() {
+	std::string GetSummary() const {
 		return m_summary;
 	}
-	std::string GetTitle() {
+	std::string GetTitle() const {
 		return m_title;
 	}
-	std::string GetReleaseDate() {
+	std::string GetReleaseDate() const {
 		return m_releaseDate;
 	}
 	void SetSummary(std::string& summary) {
@@ -50,6 +50,11 @@ public:
 	}
 	void SetReleaseDate(std::string& releaseDate) {
 		m_releaseDate = releaseDate;
+	}
+
+	// Static functions
+	static std::vector<Videogame> AllGames() {
+		return VideogameDB::AllGames();
 	}
 
 };

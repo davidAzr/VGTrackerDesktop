@@ -108,7 +108,7 @@
     <QtUic Include="VGTrackerDesktop.ui" />
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="VGTrackerDesktop.qrc" />
+    <QtRcc Include="vgtrackerresources.qrc" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="VGTrackerDesktop.rc" />

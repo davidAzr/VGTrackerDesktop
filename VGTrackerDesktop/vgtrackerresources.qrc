@@ -1,0 +1,18 @@
+<RCC>
+  <qresource prefix="fonts">
+    <file>D:/David/Documents/Fuentes/Nunito/Nunito-Black.ttf</file>
+    <file>D:/David/Documents/Fuentes/Nunito/Nunito-BlackItalic.ttf</file>
+    <file>D:/David/Documents/Fuentes/Nunito/Nunito-Bold.ttf</file>
+    <file>D:/David/Documents/Fuentes/Nunito/Nunito-BoldItalic.ttf</file>
+    <file>D:/David/Documents/Fuentes/Nunito/Nunito-ExtraBold.ttf</file>
+    <file>D:/David/Documents/Fuentes/Nunito/Nunito-ExtraBoldItalic.ttf</file>
+    <file>D:/David/Documents/Fuentes/Nunito/Nunito-ExtraLight.ttf</file>
+    <file>D:/David/Documents/Fuentes/Nunito/Nunito-ExtraLightItalic.ttf</file>
+    <file>D:/David/Documents/Fuentes/Nunito/Nunito-Italic.ttf</file>
+    <file>D:/David/Documents/Fuentes/Nunito/Nunito-Light.ttf</file>
+    <file>D:/David/Documents/Fuentes/Nunito/Nunito-LightItalic.ttf</file>
+    <file>D:/David/Documents/Fuentes/Nunito/Nunito-Regular.ttf</file>
+    <file>D:/David/Documents/Fuentes/Nunito/Nunito-SemiBold.ttf</file>
+    <file>D:/David/Documents/Fuentes/Nunito/Nunito-SemiBoldItalic.ttf</file>
+  </qresource>
+</RCC>

@@ -2,21 +2,31 @@
 <ui version="4.0">
  <class>VGTrackerDesktopClass</class>
  <widget class="QMainWindow" name="VGTrackerDesktopClass">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
-    <height>1080</height>
+    <width>1280</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>VGTrackerDesktop</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(45, 45, 45);
+color: white</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
@@ -24,6 +34,11 @@
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
          <widget class="QLabel" name="lb_library">
+          <property name="font">
+           <font>
+            <pointsize>17</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>Library</string>
           </property>
@@ -63,6 +78,9 @@
           </property>
           <property name="batchSize">
            <number>10</number>
+          </property>
+          <property name="itemAlignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -121,6 +139,54 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="page_3">
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>120</y>
+          <width>47</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>250</y>
+          <width>47</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>780</x>
+          <y>270</y>
+          <width>47</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tahoma</family>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -128,7 +194,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="VGTrackerDesktop.qrc"/>
+  <include location="vgtrackerresources.qrc"/>
  </resources>
  <connections/>
 </ui>

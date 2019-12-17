@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 #include <mysql.h>
 
 class Videogame;
@@ -34,5 +35,7 @@ public:
 	bool Save(Videogame* videogame);
 	bool Update(Videogame* videogame);
 	Videogame Read(std::string title);
+
+	static std::vector<Videogame> AllGames();
 };
 

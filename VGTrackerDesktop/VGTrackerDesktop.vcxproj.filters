@@ -58,7 +58,7 @@
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="VGTrackerDesktop.qrc">
+    <QtRcc Include="vgtrackerresources.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
   </ItemGroup>

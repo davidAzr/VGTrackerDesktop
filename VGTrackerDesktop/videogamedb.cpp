@@ -49,3 +49,31 @@ Videogame VideogameDB::Read(std::string title) {
 	}
 	return videogame;
 }
+
+std::vector<Videogame> VideogameDB::AllGames()
+{
+	std::vector<Videogame> videogames;
+
+	MYSQL* conn;
+	conn = mysql_init(0);
+	conn = mysql_real_connect(conn, "localhost", "root", "MyNewPass", "testdb", 3306, NULL, 0);
+
+	if (conn) {
+		std::string query = "SELECT * FROM Videogame ;";
+		const char* q = query.c_str();
+		int qstate = mysql_query(conn, q);
+		if (!qstate) {
+			
+			MYSQL_RES* res = mysql_store_result(conn);
+			MYSQL_ROW row;
+			while (row = mysql_fetch_row(res)) {
+				Videogame videogame;
+				videogame.SetTitle(std::string(row[0]));
+				videogame.SetSummary(std::string(row[1]));
+				videogame.SetReleaseDate(std::string(row[2]));
+				videogames.push_back(videogame);
+			}
+		}
+	}
+	return videogames;
+}

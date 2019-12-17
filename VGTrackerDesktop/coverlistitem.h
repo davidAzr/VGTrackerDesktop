@@ -11,7 +11,7 @@ class CoverListItem : public QWidget
 	Q_OBJECT
 
 public:
-	CoverListItem();
+	CoverListItem(QWidget* _parent, const std::string& title);
 	~CoverListItem();
 
 protected slots:
