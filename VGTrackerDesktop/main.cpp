@@ -1,4 +1,5 @@
-#include "VGTrackerDesktop.h"
+//#include "VGTrackerDesktop.h"
+#include "VGTrackerMainWindow.h"
 #include <QtWidgets/QApplication>
 
 //#include "stdafx.h"
@@ -28,7 +29,8 @@ int main(int argc, char *argv[])
 
 
 	QApplication a(argc, argv);
-	VGTrackerDesktop w;
+	//VGTrackerDesktop w;
+	VGTrackerMainWindow w(NULL);
 	QCoreApplication::setAttribute(Qt::AA_UseStyleSheetPropagationInWidgetStyles, true);
 	w.show();
 	return a.exec();

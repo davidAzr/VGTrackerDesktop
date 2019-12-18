@@ -73,6 +73,9 @@ color: white</string>
           <property name="layoutMode">
            <enum>QListView::SinglePass</enum>
           </property>
+          <property name="spacing">
+           <number>8</number>
+          </property>
           <property name="modelColumn">
            <number>0</number>
           </property>

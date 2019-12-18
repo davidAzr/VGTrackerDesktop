@@ -40,6 +40,12 @@
     <ClCompile Include="coverlistitem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="vgtrackermainwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="library.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="VGTrackerDesktop.h">
@@ -48,12 +54,24 @@
     <QtMoc Include="coverlistitem.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="vgtrackermainwindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="library.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="VGTrackerDesktop.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="coverListItem.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="VGTrackerMainWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="library.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

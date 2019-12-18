@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QWidget>
-#include <QListWidgetItem>
 
 #include "ui_coverListItem.h"
 
@@ -14,9 +13,6 @@ public:
 	CoverListItem(QWidget* _parent, const std::string& title);
 	~CoverListItem();
 
-protected slots:
-	//void resizeEvent(QResizeEvent *event) override;
-
 protected:
-	Ui::coverListItem m_ui;
+	Ui::CoverListItem m_ui;
 };
