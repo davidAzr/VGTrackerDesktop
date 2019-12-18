@@ -46,6 +46,9 @@
     <ClCompile Include="library.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="gameinfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="VGTrackerDesktop.h">
@@ -60,6 +63,9 @@
     <QtMoc Include="library.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="gameinfo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="VGTrackerDesktop.ui">
@@ -72,6 +78,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="library.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="gameinfo.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

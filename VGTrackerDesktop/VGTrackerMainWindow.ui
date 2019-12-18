@@ -26,7 +26,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#fr_sidebar, QWidget#fr_sidebar * {
-	background-color: rgb(59, 59, 59);
+	background-color: rgb(20, 20, 20);
 	color:white
 }
 QWidget#fr_formholder {

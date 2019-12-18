@@ -23,6 +23,10 @@ CoverListItem::CoverListItem(QWidget* _parent, const std::string& title)
 CoverListItem::~CoverListItem()
 {
 }
+std::string CoverListItem::GetTitle()
+{
+	return this->m_ui.lb_name->text().toStdString();
+}
 /*
 void CoverListItem::resizeEvent(QResizeEvent * event)
 {

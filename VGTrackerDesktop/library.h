@@ -17,6 +17,11 @@ protected slots:
 	void bt_loadCyberOnClick();
 	void bt_loadMassOnClick();
 
+	void lw_gameSelected();
+
+signals:
+	void gameSelected(const std::string& title);
+
 protected:
 	Ui::wg_library m_ui;
 	Videogame m_videogame;

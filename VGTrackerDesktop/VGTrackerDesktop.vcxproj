@@ -95,6 +95,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="coverlistitem.cpp" />
+    <ClCompile Include="gameinfo.cpp" />
     <ClCompile Include="library.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="VGTrackerDesktop.cpp" />
@@ -107,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="coverListItem.ui" />
+    <QtUic Include="gameinfo.ui" />
     <QtUic Include="library.ui" />
     <QtUic Include="VGTrackerDesktop.ui" />
     <QtUic Include="VGTrackerMainWindow.ui" />
@@ -121,6 +123,7 @@
     <QtMoc Include="coverlistitem.h" />
     <QtMoc Include="vgtrackermainwindow.h" />
     <QtMoc Include="library.h" />
+    <QtMoc Include="gameinfo.h" />
     <ClInclude Include="videogame.h" />
     <ClInclude Include="videogamedb.h" />
   </ItemGroup>

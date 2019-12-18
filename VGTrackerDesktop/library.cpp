@@ -11,6 +11,8 @@ Library::Library(QWidget *parent)
 	connect(this->m_ui.bt_loadCyber, &QPushButton::clicked, this, &Library::bt_loadCyberOnClick);
 	connect(this->m_ui.bt_loadMass, &QPushButton::clicked, this, &Library::bt_loadMassOnClick);
 
+	connect(this->m_ui.lw_library, &QListWidget::itemClicked, this, &Library::lw_gameSelected);
+
 	int id = QFontDatabase::addApplicationFont("designResources/fonts/Nunito/Nunito-Regular.ttf");
 	QString family = QFontDatabase::applicationFontFamilies(id).at(0);
 	QFont nunito(family);
@@ -59,6 +61,12 @@ void Library::bt_loadMassOnClick()
 {
 	m_videogame.Read("Mass Effect");
 	UpdateGameInfo();
+}
+
+void Library::lw_gameSelected()
+{
+	std::string selectedGameTitle = dynamic_cast<CoverListItem*>(this->m_ui.lw_library->itemWidget(this->m_ui.lw_library->currentItem()))->GetTitle();
+	emit gameSelected(selectedGameTitle);
 }
 
 void Library::UpdateGameInfo()

@@ -13,6 +13,8 @@ public:
 	CoverListItem(QWidget* _parent, const std::string& title);
 	~CoverListItem();
 
+	std::string GetTitle();
+
 protected:
 	Ui::CoverListItem m_ui;
 };

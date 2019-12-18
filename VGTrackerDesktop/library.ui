@@ -42,7 +42,7 @@ color: white</string>
           </font>
          </property>
          <property name="text">
-          <string>Library</string>
+          <string>Your games</string>
          </property>
         </widget>
        </item>
