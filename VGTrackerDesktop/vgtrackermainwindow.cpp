@@ -23,7 +23,6 @@ void VGTrackerMainWindow::ShowGameInfo(const std::string & title)
 {
 	this->m_gameInfo->LoadGame(title);
 
-
 	this->m_ui.lo_widgetholder->replaceWidget(m_library.get(), m_gameInfo.get());
 	m_library->setVisible(false);
 	m_gameInfo->setVisible(true);

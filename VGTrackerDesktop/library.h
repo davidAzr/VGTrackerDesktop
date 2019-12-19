@@ -13,10 +13,6 @@ public:
 	~Library();
 
 protected slots:
-	void bt_loadWitcherOnClick();
-	void bt_loadCyberOnClick();
-	void bt_loadMassOnClick();
-
 	void lw_gameSelected();
 
 signals:
@@ -25,5 +21,4 @@ signals:
 protected:
 	Ui::wg_library m_ui;
 	Videogame m_videogame;
-	void UpdateGameInfo();
 };

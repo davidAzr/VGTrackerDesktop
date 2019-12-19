@@ -28,9 +28,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VGTrackerDesktop.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="videogame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -49,11 +46,11 @@
     <ClCompile Include="gameinfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="fonts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="VGTrackerDesktop.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="coverlistitem.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -97,6 +94,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="videogamedb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fonts.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

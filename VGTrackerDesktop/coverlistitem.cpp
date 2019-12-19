@@ -1,5 +1,6 @@
 #include "coverlistitem.h"
-#include <QFontDatabase>
+
+#include "fonts.h"
 
 CoverListItem::CoverListItem(QWidget* _parent, const std::string& title)
 	: QWidget(_parent)
@@ -13,9 +14,7 @@ CoverListItem::CoverListItem(QWidget* _parent, const std::string& title)
 	// set a scaled pixmap to a w x h window keeping its aspect ratio 
 	m_ui.lb_name->setText(title.c_str());
 	m_ui.lb_coverImage->setPixmap(p.scaled(w, h, Qt::KeepAspectRatio));
-	int id = QFontDatabase::addApplicationFont("designResources/fonts/Nunito/Nunito-ExtraBold.ttf");
-	QString family = QFontDatabase::applicationFontFamilies(id).at(0);
-	QFont nunito(family, 10);
+	QFont nunito = Fonts::GetFont(Fonts::FontNames::NunitoExtraBold);
 	this->m_ui.lb_name->setFont(nunito);
 	
 }
@@ -27,14 +26,3 @@ std::string CoverListItem::GetTitle()
 {
 	return this->m_ui.lb_name->text().toStdString();
 }
-/*
-void CoverListItem::resizeEvent(QResizeEvent * event)
-{
-	QPixmap p("witcher3cover.jpg"); // load pixmap
-	int w = m_ui.lb_coverImage->width();
-	int h = m_ui.lb_coverImage->height();
-	// set a scaled pixmap to a w x h window keeping its aspect ratio 
-	m_ui.lb_name->setText("The Witcher 3: Wild Hunt");
-	m_ui.lb_coverImage->setPixmap(p.scaled(w, h, Qt::KeepAspectRatio));
-}
-*/
