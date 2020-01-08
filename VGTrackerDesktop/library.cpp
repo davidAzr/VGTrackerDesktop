@@ -7,6 +7,7 @@ Library::Library(QWidget *parent)
 	this->m_ui.setupUi(this);
 
 	connect(this->m_ui.lw_library, &QListWidget::itemClicked, this, &Library::lw_gameSelected);
+	connect(this->m_ui.bt_addGame, &QPushButton::clicked, this, &Library::bt_addGameClicked);
 
 	QFont nunito = Fonts::GetFont(Fonts::FontNames::NunitoRegular);
 	this->setFont(nunito);
@@ -27,12 +28,17 @@ Library::Library(QWidget *parent)
 	this->setFont(nunito);
 }
 
+Library::~Library()
+{
+}
+
 void Library::lw_gameSelected()
 {
 	std::string selectedGameTitle = dynamic_cast<CoverListItem*>(this->m_ui.lw_library->itemWidget(this->m_ui.lw_library->currentItem()))->GetTitle();
 	emit gameSelected(selectedGameTitle);
 }
 
-Library::~Library()
+void Library::bt_addGameClicked()
 {
+	emit addGame();
 }

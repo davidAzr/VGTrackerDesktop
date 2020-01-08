@@ -112,7 +112,7 @@ QWidget#fr_formholder {
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="bt_goLibrary">
         <property name="minimumSize">
          <size>
           <width>65</width>

@@ -26,6 +26,12 @@ color: white</string>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QLabel" name="lb_library">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="font">
       <font>
        <pointsize>17</pointsize>
@@ -34,9 +40,54 @@ color: white</string>
      <property name="text">
       <string>Your games</string>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+     </property>
     </widget>
    </item>
-   <item row="1" column="0">
+   <item row="0" column="1">
+    <widget class="QPushButton" name="bt_addGame">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>70</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget#bt_addGame{
+  color:rgb(221, 221, 221);
+font-size:12px;
+border-style:none;
+text-align: right;
+}
+QWidget#bt_addGame:hover{
+  color:white;
+  font-size:14px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Add new...</string>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
     <widget class="QListWidget" name="lw_library">
      <property name="layoutDirection">
       <enum>Qt::LeftToRight</enum>

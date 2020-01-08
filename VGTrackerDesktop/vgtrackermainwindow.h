@@ -5,6 +5,7 @@
 #include "ui_VGTrackerMainWindow.h"
 #include "library.h"
 #include "gameinfo.h"
+#include "addgameform.h"
 
 class VGTrackerMainWindow : public QWidget
 {
@@ -15,9 +16,14 @@ public:
 	~VGTrackerMainWindow();
 protected slots:
 	void ShowGameInfo(const std::string& title);
+	void ShowLibrary();
+	void ShowAddGame();
 protected:
 	Ui::VGTrackerMain m_ui;
 
 	std::unique_ptr<Library> m_library;
 	std::unique_ptr<GameInfo> m_gameInfo;
+	std::unique_ptr<AddGameForm> m_addGameForm;
+
+	void ChangeWindow(QWidget*);
 };

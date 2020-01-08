@@ -14,9 +14,11 @@ public:
 
 protected slots:
 	void lw_gameSelected();
+	void bt_addGameClicked();
 
 signals:
 	void gameSelected(const std::string& title);
+	void addGame();
 
 protected:
 	Ui::wg_library m_ui;

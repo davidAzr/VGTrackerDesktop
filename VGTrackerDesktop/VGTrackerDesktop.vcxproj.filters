@@ -49,6 +49,9 @@
     <ClCompile Include="fonts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="addgameform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="coverlistitem.h">
@@ -61,6 +64,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="gameinfo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="addgameform.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -78,6 +84,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="gameinfo.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="addgameform.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
