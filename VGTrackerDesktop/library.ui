@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>913</width>
-    <height>273</height>
+    <height>427</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,8 +20,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(45, 45, 45);
-color: white</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -43,6 +42,9 @@ color: white</string>
      <property name="alignment">
       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
      </property>
+     <property name="class" stdset="0">
+      <string>formTitle</string>
+     </property>
     </widget>
    </item>
    <item row="0" column="1">
@@ -60,24 +62,13 @@ color: white</string>
       </size>
      </property>
      <property name="font">
-      <font>
-       <pointsize>-1</pointsize>
-      </font>
+      <font/>
      </property>
      <property name="layoutDirection">
       <enum>Qt::LeftToRight</enum>
      </property>
      <property name="styleSheet">
-      <string notr="true">QWidget#bt_addGame{
-  color:rgb(221, 221, 221);
-font-size:12px;
-border-style:none;
-text-align: right;
-}
-QWidget#bt_addGame:hover{
-  color:white;
-  font-size:14px;
-}</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>Add new...</string>
@@ -85,15 +76,30 @@ QWidget#bt_addGame:hover{
      <property name="flat">
       <bool>false</bool>
      </property>
+     <property name="class" stdset="0">
+      <string>labelButton</string>
+     </property>
     </widget>
    </item>
    <item row="1" column="0" colspan="2">
     <widget class="QListWidget" name="lw_library">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
      <property name="layoutDirection">
       <enum>Qt::LeftToRight</enum>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255, 0);</string>
+      <string notr="true"/>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
@@ -123,13 +129,16 @@ QWidget#bt_addGame:hover{
       <number>0</number>
      </property>
      <property name="uniformItemSizes">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
      <property name="batchSize">
       <number>10</number>
      </property>
      <property name="itemAlignment">
       <set>Qt::AlignCenter</set>
+     </property>
+     <property name="class" stdset="0">
+      <string>coverList</string>
      </property>
     </widget>
    </item>

@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>168</width>
-    <height>250</height>
+    <width>185</width>
+    <height>242</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
@@ -26,19 +32,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget#fr_item{
-	color: rgb(232, 232, 232);
-	background-color: rgb(59, 59, 59);
-border-radius: 4px;
-}
-QWidget#fr_item:hover{
-  border: 1px solid  rgb(85, 0, 127);
-  background-color: rgb(70, 70, 70);
-  color: rgb(255, 255, 255);
-}
-QWidget#lb_coverImage{
-border-radius: 4px;
-}</string>
+   <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -59,14 +53,14 @@ border-radius: 4px;
    <item>
     <widget class="QFrame" name="fr_item">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
      <property name="maximumSize">
       <size>
-       <width>180</width>
+       <width>9689</width>
        <height>16777215</height>
       </size>
      </property>
@@ -75,6 +69,9 @@ border-radius: 4px;
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
+     </property>
+     <property name="class" stdset="0">
+      <string>coverListItem</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <property name="leftMargin">
@@ -109,6 +106,9 @@ border-radius: 4px;
           <height>576575</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -122,11 +122,22 @@ border-radius: 4px;
       </item>
       <item>
        <widget class="QLabel" name="lb_name">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>50</height>
+          <height>16777215</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>The Witcher 3: Wild Hunt</string>
@@ -136,6 +147,9 @@ border-radius: 4px;
         </property>
         <property name="wordWrap">
          <bool>true</bool>
+        </property>
+        <property name="class" stdset="0">
+         <string>itemTitle</string>
         </property>
        </widget>
       </item>

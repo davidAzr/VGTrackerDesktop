@@ -71,9 +71,6 @@
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="VGTrackerDesktop.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
     <QtUic Include="coverListItem.ui">
       <Filter>Form Files</Filter>
     </QtUic>
@@ -108,5 +105,8 @@
     <ClInclude Include="fonts.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="designResources\style.css" />
   </ItemGroup>
 </Project>

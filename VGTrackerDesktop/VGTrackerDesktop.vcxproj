@@ -111,7 +111,6 @@
     <QtUic Include="coverListItem.ui" />
     <QtUic Include="gameinfo.ui" />
     <QtUic Include="library.ui" />
-    <QtUic Include="VGTrackerDesktop.ui" />
     <QtUic Include="VGTrackerMainWindow.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +128,9 @@
     <ClInclude Include="fonts.h" />
     <ClInclude Include="videogame.h" />
     <ClInclude Include="videogamedb.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="designResources\style.css" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

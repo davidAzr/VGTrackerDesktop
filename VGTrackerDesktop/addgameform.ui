@@ -14,18 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">.formTitle {
-	color: white;
-}
-.formLabel {
-	color: rgb(239, 239, 239)
-}
-.formLineEdit {
-	background-color: transparent;
-	border-style: solid;
-    border-width: 1px;
-    border-radius: 1px;
-}</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="6" column="2">

@@ -1,0 +1,65 @@
+
+.formTitle {
+    color: white;
+}
+
+.formLabel {
+    color: rgb(239, 239, 239)
+}
+
+.formLineEdit {
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 1px;
+}
+
+.coverListItem {
+    background-color: rgb(59, 59, 59);
+    border-radius: 4px;
+}
+
+.itemTitle {
+    color: rgb(232, 232, 232);
+}
+
+.coverListItem:hover {
+    border: 1px solid rgb(85, 0, 127);
+    background-color: rgb(70, 70, 70);
+}
+
+.itemTitle:hover {
+    color: rgb(255, 255, 255);
+}
+
+.labelButton {
+    color: rgb(221, 221, 221);
+    font-size: 12px;
+    border-style: none;
+    text-align: right;
+}
+
+.labelButton:hover {
+    color: white;
+    font-size: 14px;
+}
+
+.coverList {
+    background-color: transparent;
+}
+
+.sidebar, .sidebar * {
+    background-color: rgb(20, 20, 20);
+    color: white
+}
+
+.formHolder {
+    background-color: rgb(45, 45, 45);
+}
+
+/*
+.formHolder * {
+    background-color: transparent;
+    color: white
+}
+    */

@@ -1,5 +1,6 @@
 #include "VGTrackerMainWindow.h"
 #include <QtWidgets/QApplication>
+#include <QFile>
 
 #include <mysql.h>
 #include <iostream>
@@ -29,7 +30,20 @@ int main(int argc, char *argv[])
 
 
 	QApplication a(argc, argv);
+	
 	Fonts::addFontsToApplication();
+
+	QString fileName = "designResources/style.css";
+
+	// Read in the stylesheet
+	QFile stylesheet(fileName);
+	stylesheet.open(QFile::ReadOnly);
+	QString css = QString(stylesheet.readAll());
+	stylesheet.close();
+
+	// Apply the stylesheet
+	a.setStyleSheet(css);
+
 	VGTrackerMainWindow w(NULL);
 	QCoreApplication::setAttribute(Qt::AA_UseStyleSheetPropagationInWidgetStyles, true);
 	w.show();
