@@ -12,6 +12,8 @@ public:
 	Library(QWidget *parent);
 	~Library();
 
+	void RefreshGamesList();
+
 protected slots:
 	void lw_gameSelected();
 	void bt_addGameClicked();

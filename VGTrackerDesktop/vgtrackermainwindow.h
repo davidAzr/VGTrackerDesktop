@@ -16,7 +16,7 @@ public:
 	~VGTrackerMainWindow();
 protected slots:
 	void ShowGameInfo(const std::string& title);
-	void ShowLibrary();
+	void ShowLibrary(const bool& update = false);
 	void ShowAddGame();
 protected:
 	Ui::VGTrackerMain m_ui;

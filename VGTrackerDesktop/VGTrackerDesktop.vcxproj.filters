@@ -52,6 +52,9 @@
     <ClCompile Include="addgameform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="auxiliary.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="coverlistitem.h">
@@ -103,6 +106,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="fonts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="auxiliary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

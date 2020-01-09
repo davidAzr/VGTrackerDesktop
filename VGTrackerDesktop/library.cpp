@@ -1,6 +1,8 @@
 #include "library.h"
 #include "coverlistitem.h"
 #include "fonts.h"
+#include <QGraphicsDropShadowEffect>
+
 Library::Library(QWidget *parent)
 	: QWidget(parent)
 {
@@ -9,27 +11,41 @@ Library::Library(QWidget *parent)
 	connect(this->m_ui.lw_library, &QListWidget::itemClicked, this, &Library::lw_gameSelected);
 	connect(this->m_ui.bt_addGame, &QPushButton::clicked, this, &Library::bt_addGameClicked);
 
+	QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect();
+	shadowEffect->setBlurRadius(0);
+	shadowEffect->setColor(QColor("#000000"));
+	shadowEffect->setOffset(1, 1);
+	this->m_ui.lb_library->setGraphicsEffect(shadowEffect);
+
 	QFont nunito = Fonts::GetFont(Fonts::FontNames::NunitoRegular);
 	this->setFont(nunito);
-
-	std::vector<Videogame> libraryGames = Videogame::AllGames();
-
-	std::for_each(begin(libraryGames), end(libraryGames),
-		[&](const Videogame& videogame) {
-			std::string itemNameStr = videogame.GetTitle();
-			CoverListItem* newRealItem = new CoverListItem(this, itemNameStr);
-			QListWidgetItem* newItem = new QListWidgetItem();
-			newItem->setSizeHint(newRealItem->sizeHint());
-			m_ui.lw_library->addItem(newItem);
-			m_ui.lw_library->setItemWidget(newItem, newRealItem);
-		}
-	);
-
-	this->setFont(nunito);
+	
+	this->RefreshGamesList();
 }
 
 Library::~Library()
 {
+}
+
+void Library::RefreshGamesList() {
+	std::vector<Videogame> libraryGames = Videogame::AllGames();
+	this->m_ui.lw_library->clear();
+	std::for_each(begin(libraryGames), end(libraryGames),
+		[&](const Videogame& videogame) {
+		std::string itemNameStr = videogame.GetTitle();
+		CoverListItem* newRealItem = new CoverListItem(this, itemNameStr);
+		QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect();
+		shadowEffect->setBlurRadius(40);
+		QColor shadowColor;
+		shadowColor.setNamedColor("black");
+		shadowEffect->setColor(shadowColor);
+		newRealItem->setGraphicsEffect(shadowEffect);
+		QListWidgetItem* newItem = new QListWidgetItem();
+		newItem->setSizeHint(newRealItem->sizeHint());
+		m_ui.lw_library->addItem(newItem);
+		m_ui.lw_library->setItemWidget(newItem, newRealItem);
+	}
+	);
 }
 
 void Library::lw_gameSelected()

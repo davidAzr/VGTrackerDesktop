@@ -37,7 +37,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Your games</string>
+      <string>Library</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -129,7 +129,7 @@
       <number>0</number>
      </property>
      <property name="uniformItemSizes">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="batchSize">
       <number>10</number>

@@ -97,6 +97,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="addgameform.cpp" />
+    <ClCompile Include="auxiliary.cpp" />
     <ClCompile Include="coverlistitem.cpp" />
     <ClCompile Include="fonts.cpp" />
     <ClCompile Include="gameinfo.cpp" />
@@ -125,6 +126,7 @@
     <QtMoc Include="library.h" />
     <QtMoc Include="gameinfo.h" />
     <QtMoc Include="addgameform.h" />
+    <ClInclude Include="auxiliary.h" />
     <ClInclude Include="fonts.h" />
     <ClInclude Include="videogame.h" />
     <ClInclude Include="videogamedb.h" />

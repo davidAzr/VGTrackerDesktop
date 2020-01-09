@@ -18,6 +18,7 @@ VGTrackerMainWindow::VGTrackerMainWindow(QWidget *parent)
 
 	connect(m_library.get(), &Library::gameSelected, this, &VGTrackerMainWindow::ShowGameInfo);
 	connect(m_library.get(), &Library::addGame, this, &VGTrackerMainWindow::ShowAddGame);
+	connect(m_addGameForm.get(), &AddGameForm::goLibrary, this, &VGTrackerMainWindow::ShowLibrary);
 
 	connect(this->m_ui.bt_goLibrary, &QPushButton::clicked, this, &VGTrackerMainWindow::ShowLibrary);
 
@@ -27,13 +28,17 @@ VGTrackerMainWindow::~VGTrackerMainWindow()
 {
 }
 
-void VGTrackerMainWindow::ShowLibrary()
+void VGTrackerMainWindow::ShowLibrary(const bool& update)
 {
+	if (update) {
+		this->m_library->RefreshGamesList();
+	}
 	ChangeWindow(m_library.get());
 }
 
 void VGTrackerMainWindow::ShowAddGame()
 {
+	m_addGameForm->Reset();
 	ChangeWindow(m_addGameForm.get());
 }
 

@@ -1,10 +1,15 @@
 
 .formTitle {
     color: white;
+    text-shadow: 2px 2px red;
 }
 
 .formLabel {
     color: rgb(239, 239, 239)
+}
+
+.formButton {
+    background-color: rgb(59,59,59);
 }
 
 .formLineEdit {
@@ -12,6 +17,7 @@
     border-style: solid;
     border-width: 1px;
     border-radius: 1px;
+    color: white;
 }
 
 .coverListItem {
@@ -54,7 +60,13 @@
 }
 
 .formHolder {
-    background-color: rgb(45, 45, 45);
+    /*background-color: rgb(45, 45, 45);*/
+    background-color: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:0 black, stop:0.15 rgb(30,30,30), stop:0.25 rgb(45,45,45));
+}
+
+.transparentFrame {
+    background-color: transparent;
+    border: 0;
 }
 
 /*
@@ -62,4 +74,4 @@
     background-color: transparent;
     color: white
 }
-    */
+*/

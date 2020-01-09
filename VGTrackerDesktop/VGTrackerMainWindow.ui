@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>VGTracker</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -25,8 +25,7 @@
     <selectedon>D:/David/Downloads/icon1.png</selectedon>D:/David/Downloads/icon1.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-</string>
+   <string notr="true"/>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
