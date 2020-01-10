@@ -9,7 +9,8 @@ class Videogame
 protected:
 	std::string m_title,
 				m_summary,
-				m_releaseDate;
+				m_releaseDate,
+				m_sqlReleaseDate;
 					
 	bool m_favourite;
 
@@ -45,6 +46,9 @@ public:
 	std::string GetReleaseDate() const {
 		return m_releaseDate;
 	}
+	std::string GetSqlReleaseDate() const {
+		return m_sqlReleaseDate;
+	}
 	void SetSummary(std::string& summary) {
 		m_summary = summary;
 	}
@@ -53,6 +57,9 @@ public:
 	}
 	void SetReleaseDate(std::string& releaseDate) {
 		m_releaseDate = releaseDate;
+	}
+	void SetSqlReleaseDate(std::string& releaseDate) {
+		m_sqlReleaseDate = releaseDate;
 	}
 
 	// Static functions

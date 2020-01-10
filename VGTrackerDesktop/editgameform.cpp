@@ -44,7 +44,7 @@ void EditGameForm::bt_updateClicked() {
 
 		sqlDate = year + "-" + month + "-" + day;
 
-		this->m_videogame->SetReleaseDate(sqlDate);
+		this->m_videogame->SetSqlReleaseDate(sqlDate);
 	}
 
 	std::string newFilePath = "designResources/covers/" + TransformTitleToFilename(this->m_ui.le_title->text().toStdString()) + ".jpg";

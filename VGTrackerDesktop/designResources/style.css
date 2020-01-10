@@ -57,7 +57,7 @@
 }
 
 .coverListItem {
-    background-color: rgb(59, 59, 59);
+    background-color: rgba(59, 59, 59, 125);
     border-radius: 4px;
 }
 
@@ -67,7 +67,7 @@
 
 .coverListItem:hover {
     border: 1px solid rgb(85, 0, 127);
-    background-color: rgb(70, 70, 70);
+    background-color: rgba(70, 70, 70, 200);
 }
 
 .itemTitle:hover {

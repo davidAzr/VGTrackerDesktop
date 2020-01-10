@@ -1,4 +1,5 @@
 #include "gameinfo.h"
+#include <QGraphicsDropShadowEffect>
 
 GameInfo::GameInfo(QWidget *parent)
 	: QWidget(parent)
@@ -6,6 +7,43 @@ GameInfo::GameInfo(QWidget *parent)
 	m_ui.setupUi(this);
 
 	connect(this->m_ui.bt_editGame, &QPushButton::clicked, this, &GameInfo::bt_editGame);
+
+	QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect();
+	shadowEffect->setBlurRadius(40);
+	QColor shadowColor;
+	shadowColor.setNamedColor("black");
+	shadowEffect->setColor(shadowColor);
+	this->m_ui.lb_cover->setGraphicsEffect(shadowEffect);
+
+	shadowEffect = new QGraphicsDropShadowEffect();
+	shadowEffect->setBlurRadius(40);
+	shadowColor.setNamedColor("black");
+	shadowEffect->setColor(shadowColor);
+	this->m_ui.tabWidget->setGraphicsEffect(shadowEffect);
+
+	shadowEffect = new QGraphicsDropShadowEffect();
+	shadowEffect->setBlurRadius(20);
+	shadowColor.setNamedColor("black");
+	shadowEffect->setColor(shadowColor);
+	this->m_ui.lb_summary->setGraphicsEffect(shadowEffect);
+
+	shadowEffect = new QGraphicsDropShadowEffect();
+	shadowEffect->setBlurRadius(20);
+	shadowColor.setNamedColor("black");
+	shadowEffect->setColor(shadowColor);
+	this->m_ui.lb_title->setGraphicsEffect(shadowEffect);
+
+	shadowEffect = new QGraphicsDropShadowEffect();
+	shadowEffect->setBlurRadius(20);
+	shadowColor.setNamedColor("black");
+	shadowEffect->setColor(shadowColor);
+	this->m_ui.lb_releasedate->setGraphicsEffect(shadowEffect);
+	
+	shadowEffect = new QGraphicsDropShadowEffect();
+	shadowEffect->setBlurRadius(20);
+	shadowColor.setNamedColor("black");
+	shadowEffect->setColor(shadowColor);
+	this->m_ui.bt_editGame->setGraphicsEffect(shadowEffect);
 }
 
 GameInfo::~GameInfo()
