@@ -4,6 +4,8 @@ GameInfo::GameInfo(QWidget *parent)
 	: QWidget(parent)
 {
 	m_ui.setupUi(this);
+
+	connect(this->m_ui.bt_editGame, &QPushButton::clicked, this, &GameInfo::bt_editGame);
 }
 
 GameInfo::~GameInfo()
@@ -26,4 +28,8 @@ void GameInfo::UpdateGameInfo()
 	std::replace(std::begin(coverFile), std::end(coverFile), ':', ';');
 	QPixmap p(coverFile.c_str()); // load pixmap
 	m_ui.lb_cover->setPixmap(p);
+}
+
+void GameInfo::bt_editGame() {
+	emit goEdit(&this->m_gameShown);
 }

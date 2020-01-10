@@ -6,6 +6,8 @@
 #include "library.h"
 #include "gameinfo.h"
 #include "addgameform.h"
+#include "editgameform.h"
+
 
 class VGTrackerMainWindow : public QWidget
 {
@@ -18,12 +20,15 @@ protected slots:
 	void ShowGameInfo(const std::string& title);
 	void ShowLibrary(const bool& update = false);
 	void ShowAddGame();
+	void ShowEditGame(Videogame* videogame);
+	void UpdateStyle();
 protected:
 	Ui::VGTrackerMain m_ui;
 
 	std::unique_ptr<Library> m_library;
 	std::unique_ptr<GameInfo> m_gameInfo;
 	std::unique_ptr<AddGameForm> m_addGameForm;
+	std::unique_ptr<EditGameForm> m_editGameForm;
 
 	void ChangeWindow(QWidget*);
 };

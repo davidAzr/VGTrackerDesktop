@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AddGameForm</class>
- <widget class="QWidget" name="AddGameForm">
+ <class>EditGameForm</class>
+ <widget class="QWidget" name="EditGameForm">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -47,27 +47,21 @@
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="28" column="1" colspan="3">
-        <widget class="QPushButton" name="bt_add">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
+       <item row="14" column="1" colspan="3">
+        <spacer name="verticalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
          </property>
-         <property name="minimumSize">
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
           <size>
-           <width>0</width>
-           <height>0</height>
+           <width>20</width>
+           <height>10</height>
           </size>
          </property>
-         <property name="text">
-          <string>Add</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>formButton</string>
-         </property>
-        </widget>
+        </spacer>
        </item>
        <item row="16" column="4">
         <spacer name="horizontalSpacer_3">
@@ -81,22 +75,6 @@
           <size>
            <width>200</width>
            <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="14" column="1" colspan="3">
-        <spacer name="verticalSpacer_6">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>10</height>
           </size>
          </property>
         </spacer>
@@ -120,6 +98,19 @@
          </property>
         </widget>
        </item>
+       <item row="23" column="1" colspan="3">
+        <widget class="QLabel" name="lb_coverPath">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>No file selected</string>
+         </property>
+        </widget>
+       </item>
        <item row="11" column="1" colspan="3">
         <spacer name="verticalSpacer_5">
          <property name="orientation">
@@ -135,19 +126,6 @@
           </size>
          </property>
         </spacer>
-       </item>
-       <item row="23" column="1" colspan="3">
-        <widget class="QLabel" name="lb_coverPath">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>No file selected</string>
-         </property>
-        </widget>
        </item>
        <item row="10" column="1" colspan="3">
         <widget class="QLabel" name="label">
@@ -165,7 +143,7 @@
           </font>
          </property>
          <property name="text">
-          <string>Add a new game</string>
+          <string>Edit game</string>
          </property>
          <property name="class" stdset="0">
           <string>formTitle</string>
@@ -210,6 +188,19 @@
          </property>
         </widget>
        </item>
+       <item row="25" column="1" colspan="3">
+        <widget class="QLabel" name="lb_coverMsg">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
        <item row="16" column="1" colspan="3">
         <widget class="QTextEdit" name="te_summary">
          <property name="sizePolicy">
@@ -248,38 +239,6 @@
          </property>
         </widget>
        </item>
-       <item row="25" column="1" colspan="3">
-        <widget class="QLabel" name="lb_coverMsg">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="19" column="1" colspan="3">
-        <widget class="QDateEdit" name="de_releaseDate">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="class" stdset="0">
-          <string>formLineEdit</string>
-         </property>
-        </widget>
-       </item>
        <item row="2" column="1" colspan="3">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
@@ -312,6 +271,40 @@
          </property>
         </spacer>
        </item>
+       <item row="19" column="1" colspan="3">
+        <widget class="QDateEdit" name="de_releaseDate">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="class" stdset="0">
+          <string>formLineEdit</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="1" colspan="3">
+        <widget class="QLabel" name="lb_title">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Title</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>formLabel</string>
+         </property>
+        </widget>
+       </item>
        <item row="20" column="1" colspan="3">
         <spacer name="verticalSpacer_4">
          <property name="orientation">
@@ -340,21 +333,6 @@
           </size>
          </property>
         </spacer>
-       </item>
-       <item row="12" column="1" colspan="3">
-        <widget class="QLabel" name="lb_title">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Title</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>formLabel</string>
-         </property>
-        </widget>
        </item>
        <item row="15" column="1" colspan="3">
         <widget class="QLabel" name="lb_summary">
@@ -392,6 +370,44 @@
          </property>
          <property name="class" stdset="0">
           <string>formLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="28" column="1" colspan="2">
+        <widget class="QPushButton" name="bt_update">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Update</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>formButton</string>
+         </property>
+        </widget>
+       </item>
+       <item row="28" column="3">
+        <widget class="QPushButton" name="bt_delete">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Delete</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>formDeleteButton</string>
          </property>
         </widget>
        </item>

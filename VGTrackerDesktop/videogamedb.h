@@ -34,6 +34,7 @@ public:
 	~VideogameDB() {};
 	bool Save(Videogame* videogame);
 	bool Update(Videogame* videogame);
+	bool Delete(Videogame* videogame);
 	Videogame Read(std::string title);
 
 	static std::vector<Videogame> AllGames();

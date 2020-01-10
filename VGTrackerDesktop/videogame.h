@@ -31,6 +31,9 @@ public:
 	void Read(std::string title) {
 		*this = m_vgDb.Read(title);
 	}
+	void Delete() {
+		m_vgDb.Delete(this);
+	}
 
 	// Getters & setters
 	std::string GetSummary() const {

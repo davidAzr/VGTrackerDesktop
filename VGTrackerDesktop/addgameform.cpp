@@ -74,8 +74,12 @@ void AddGameForm::bt_addClicked()
 
 		std::string newFilePath = "designResources/covers/" + TransformTitleToFilename(this->m_ui.le_title->text().toStdString()) + ".jpg";
 		
-		if(std::filesystem::exists(this->m_ui.lb_coverPath->text().toStdString()))
+		if (std::filesystem::exists(this->m_ui.lb_coverPath->text().toStdString())) {
+			if (std::filesystem::exists(newFilePath)) {
+				std::filesystem::remove(newFilePath);
+			}
 			std::filesystem::copy_file(this->m_ui.lb_coverPath->text().toStdString(), newFilePath);
+		}
 		
 	
 		bool updateLibrary = this->m_videogame->Save();

@@ -23,7 +23,20 @@ bool VideogameDB::Save(Videogame * videogame)
 bool VideogameDB::Update(Videogame * videogame)
 {
 	if (m_conn) {
-		std::string query = "UPDATE Videogame SET summary='" + videogame->GetSummary() + "', releaseDate='" + videogame->GetReleaseDate() + " WHERE title='" + videogame->GetTitle() + "';";
+		std::string query = "UPDATE Videogame SET summary='" + videogame->GetSummary() + "', releaseDate='" + videogame->GetReleaseDate() + "' WHERE title='" + videogame->GetTitle() + "';";
+		const char* q = query.c_str();
+		int qstate = mysql_query(m_conn, q);
+		if (!qstate) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool VideogameDB::Delete(Videogame * videogame)
+{
+	if (m_conn) {
+		std::string query = "DELETE FROM Videogame WHERE title='" + videogame->GetTitle() + "';";
 		const char* q = query.c_str();
 		int qstate = mysql_query(m_conn, q);
 		if (!qstate) {
