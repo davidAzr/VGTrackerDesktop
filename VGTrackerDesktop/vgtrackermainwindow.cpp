@@ -13,11 +13,13 @@ VGTrackerMainWindow::VGTrackerMainWindow(QWidget *parent)
 	m_gameInfo = std::make_unique<GameInfo>(this);
 	m_addGameForm = std::make_unique<AddGameForm>(this);
 	m_editGameForm = std::make_unique<EditGameForm>(this);
+	m_homeScreen = std::make_unique<HomeScreen>(this);
 	m_gameInfo->setVisible(false);
 	m_addGameForm->setVisible(false);
 	m_editGameForm->setVisible(false);
+	m_library->setVisible(false);
 
-	this->m_ui.lo_widgetholder->addWidget(m_library.get());
+	this->m_ui.lo_widgetholder->addWidget(m_homeScreen.get());
 
 	connect(m_library.get(), &Library::gameSelected, this, &VGTrackerMainWindow::ShowGameInfo);
 	connect(m_library.get(), &Library::addGame, this, &VGTrackerMainWindow::ShowAddGame);
@@ -26,6 +28,7 @@ VGTrackerMainWindow::VGTrackerMainWindow(QWidget *parent)
 	connect(m_editGameForm.get(), &EditGameForm::goLibrary, this, &VGTrackerMainWindow::ShowLibrary);
 	connect(m_editGameForm.get(), &EditGameForm::goGameInfo, this, &VGTrackerMainWindow::ShowGameInfo);
 
+	connect(this->m_ui.bt_goHome, &QPushButton::clicked, this, &VGTrackerMainWindow::ShowHome);
 	connect(this->m_ui.bt_goLibrary, &QPushButton::clicked, this, &VGTrackerMainWindow::ShowLibrary);
 	connect(this->m_ui.bt_restyle, &QPushButton::clicked, this, &VGTrackerMainWindow::UpdateStyle);
 
@@ -41,6 +44,14 @@ void VGTrackerMainWindow::ShowLibrary(const bool& update)
 		this->m_library->RefreshGamesList();
 	}
 	ChangeWindow(m_library.get());
+}
+
+void VGTrackerMainWindow::ShowHome(const bool& update)
+{
+	if (update) {
+		this->m_homeScreen->RefreshGamesLists();
+	}
+	ChangeWindow(m_homeScreen.get());
 }
 
 void VGTrackerMainWindow::ShowAddGame()

@@ -7,7 +7,7 @@
 #include "gameinfo.h"
 #include "addgameform.h"
 #include "editgameform.h"
-
+#include "homescreen.h"
 
 class VGTrackerMainWindow : public QWidget
 {
@@ -19,6 +19,7 @@ public:
 protected slots:
 	void ShowGameInfo(const std::string& title);
 	void ShowLibrary(const bool& update = false);
+	void ShowHome(const bool& update = false);
 	void ShowAddGame();
 	void ShowEditGame(Videogame* videogame);
 	void UpdateStyle();
@@ -29,6 +30,7 @@ protected:
 	std::unique_ptr<GameInfo> m_gameInfo;
 	std::unique_ptr<AddGameForm> m_addGameForm;
 	std::unique_ptr<EditGameForm> m_editGameForm;
+	std::unique_ptr<HomeScreen> m_homeScreen;
 
 	void ChangeWindow(QWidget*);
 };

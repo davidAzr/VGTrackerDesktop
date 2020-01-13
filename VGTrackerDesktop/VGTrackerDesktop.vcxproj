@@ -102,6 +102,7 @@
     <ClCompile Include="editgameform.cpp" />
     <ClCompile Include="fonts.cpp" />
     <ClCompile Include="gameinfo.cpp" />
+    <ClCompile Include="homescreen.cpp" />
     <ClCompile Include="library.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="vgtrackermainwindow.cpp" />
@@ -113,6 +114,7 @@
     <QtUic Include="coverListItem.ui" />
     <QtUic Include="editgameform.ui" />
     <QtUic Include="gameinfo.ui" />
+    <QtUic Include="homescreen.ui" />
     <QtUic Include="library.ui" />
     <QtUic Include="VGTrackerMainWindow.ui" />
   </ItemGroup>
@@ -131,6 +133,7 @@
     <ClInclude Include="auxiliary.h" />
     <QtMoc Include="editgameform.h" />
     <ClInclude Include="fonts.h" />
+    <QtMoc Include="homescreen.h" />
     <ClInclude Include="videogame.h" />
     <ClInclude Include="videogamedb.h" />
   </ItemGroup>

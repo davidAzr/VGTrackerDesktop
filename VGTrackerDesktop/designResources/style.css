@@ -1,7 +1,6 @@
 
 .formTitle {
     color: white;
-    text-shadow: 2px 2px red;
 }
 
 .formLabel {
@@ -56,23 +55,16 @@
     color: white;
 }
 
-.coverListItem {
-    background-color: rgba(59, 59, 59, 125);
-    border-radius: 4px;
-}
-
 .itemTitle {
     color: rgb(232, 232, 232);
 }
 
-.coverListItem:hover {
-    border: 1px solid rgb(85, 0, 127);
-    background-color: rgba(70, 70, 70, 200);
-}
 
-.itemTitle:hover {
-    color: rgb(255, 255, 255);
-}
+
+
+    .itemTitle:hover {
+        color: rgb(255, 255, 255);
+    }
 
 .labelButton {
     color: rgb(221, 221, 221);
@@ -81,10 +73,10 @@
     text-align: right;
 }
 
-.labelButton:hover {
-    color: white;
-    font-size: 14px;
-}
+    .labelButton:hover {
+        color: white;
+        font-size: 14px;
+    }
 
 .labelButtonForm {
     color: rgb(221, 221, 221);
@@ -93,19 +85,36 @@
     text-align: left;
 }
 
-.labelButtonForm:hover {
-    color: white;
-    font-size: 14px;
-}
+    .labelButtonForm:hover {
+        color: white;
+        font-size: 14px;
+    }
 
 .coverList {
     background-color: transparent;
 }
 
-.sidebar, .sidebar * {
+    .coverList::item {
+        background: transparent;
+    }
+
+        .coverList::item::selected {
+            background: transparent;
+        }
+
+.sidebar {
     background-color: rgb(20, 20, 20);
     color: white
 }
+
+.sidebarButton {
+    background-color: transparent;
+}
+
+    .sidebarButton:hover {
+        border-style: none;
+        background-color: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:0 rgb(20, 20, 20), stop:1 rgb(85, 0, 127));
+    }
 
 .formHolder {
     /*background-color: rgb(45, 45, 45);*/
@@ -128,19 +137,19 @@ QTabBar::tab {
     padding: 12px;
 }
 
-QTabBar::tab:selected, QTabBar::tab:hover {
-    background: rgb(45,45,45);
-}
+    QTabBar::tab:selected, QTabBar::tab:hover {
+        background: rgb(45,45,45);
+    }
 
-QTabBar::tab:selected {
-    border-color: purple;
-    border-bottom-color: rgb(45,45,45); /* same as pane color */
-}
+    QTabBar::tab:selected {
+        border-color: purple;
+        border-bottom-color: rgb(45,45,45); /* same as pane color */
+    }
 
-QTabBar::tab:!selected {
-    margin-top: 2px; /* make non-selected tabs look smaller */
-    border-bottom-color: purple; /* same as pane color */
-}
+    QTabBar::tab:!selected {
+        margin-top: 2px; /* make non-selected tabs look smaller */
+        border-bottom-color: purple; /* same as pane color */
+    }
 
 
 .gameInfoTab::pane {
@@ -152,9 +161,75 @@ QTabWidget::tab-bar {
     top: 1px;
 }
 
+.searchFiltersHolder {
+    border-radius: 5px;
+    background-color: rgba(0,0,0, 100);
+}
+
+QScrollBar:horizontal {
+    background: transparent;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: rgba(59, 59, 59, 125);
+    border-radius: 2px;
+}
+
+    QScrollBar::handle:horizontal:hover {
+        background-color: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:0 rgb(59, 59, 59), stop:1 rgb(85, 0, 127));
+    }
+
+QScrollBar::add-line:horizontal {
+    border: none;
+}
+
+QScrollBar::sub-line:horizontal {
+    border: none;
+}
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+    background: none;
+}
+
+QScrollBar:vertical {
+    background: transparent;
+}
+
+QScrollBar::handle:vertical {
+    background-color: rgba(59, 59, 59, 125);
+    border-radius: 2px;
+}
+
+    QScrollBar::handle:vertical:hover {
+        background-color: qlineargradient( x1:0 y1:0, x2:0 y2:1, stop:0 rgb(59, 59, 59), stop:1 rgb(85, 0, 127));
+    }
+
+QScrollBar::add-line:vertical {
+    border: none;
+}
+
+QScrollBar::sub-line:vertical {
+    border: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}
 /*
 .formHolder * {
     background-color: transparent;
     color: white
 }
 */
+.coverListItem {
+    background-color: rgba(59, 59, 59, 125);
+    border-radius: 4px;
+}
+
+
+    .coverListItem:hover { /*
+    border: 1px solid rgb(85, 0, 127);
+    background-color: rgba(70, 70, 70, 200);*/
+        border-style: none;
+        background-color: qlineargradient( x1:0 y1:0, x2:1 y2:1, stop:0.33 rgba(59, 59, 59, 200), stop:1 rgb(85, 0, 127, 200));
+    }

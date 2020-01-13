@@ -12,10 +12,17 @@ Library::Library(QWidget *parent)
 	connect(this->m_ui.bt_addGame, &QPushButton::clicked, this, &Library::bt_addGameClicked);
 
 	QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect();
-	shadowEffect->setBlurRadius(0);
-	shadowEffect->setColor(QColor("#000000"));
-	shadowEffect->setOffset(1, 1);
+	shadowEffect->setBlurRadius(20);
+	QColor shadowColor;
+	shadowColor.setNamedColor("black");
+	shadowEffect->setColor(shadowColor);
 	this->m_ui.lb_library->setGraphicsEffect(shadowEffect);
+
+	shadowEffect = new QGraphicsDropShadowEffect();
+	shadowEffect->setBlurRadius(30);
+	shadowColor.setNamedColor("black");
+	shadowEffect->setColor(shadowColor);
+	this->m_ui.fr_filtersHolder->setGraphicsEffect(shadowEffect);
 
 	QFont nunito = Fonts::GetFont(Fonts::FontNames::NunitoRegular);
 	this->setFont(nunito);
