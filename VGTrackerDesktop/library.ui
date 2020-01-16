@@ -332,17 +332,17 @@
            </property>
            <item>
             <property name="text">
-             <string>Launch date</string>
+             <string>Alphabetic</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Release date</string>
             </property>
            </item>
            <item>
             <property name="text">
              <string>Addition date</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Alphabetic</string>
             </property>
            </item>
           </widget>
@@ -357,7 +357,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Already launched</string>
+            <string>Only unreleased titles</string>
            </property>
            <property name="class" stdset="0">
             <string>filtersCheckBox</string>

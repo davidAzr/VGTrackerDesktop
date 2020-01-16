@@ -46,6 +46,7 @@ int main(int argc, char *argv[])
 
 	VGTrackerMainWindow w(NULL);
 	QCoreApplication::setAttribute(Qt::AA_UseStyleSheetPropagationInWidgetStyles, true);
+
 	w.show();
 	return a.exec();
 }

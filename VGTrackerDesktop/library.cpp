@@ -38,14 +38,21 @@ Library::Library(QWidget *parent)
 	this->m_ui.le_searchBar->setFont(nunito);
 	
 	this->RefreshGamesList();
+	
+	// Filters
+	connect(this->m_ui.le_searchBar, &QLineEdit::returnPressed, this, &Library::FiltersUpdated);
+	connect(this->m_ui.ck_favourite, &QCheckBox::clicked, this, &Library::FiltersUpdated);
+	connect(this->m_ui.ck_launched, &QCheckBox::clicked, this, &Library::FiltersUpdated);
+	connect(this->m_ui.cb_order, qOverload<int>(&QComboBox::currentIndexChanged), this, &Library::FiltersUpdated);
 }
 
 Library::~Library()
 {
 }
 
-void Library::RefreshGamesList() {
-	std::vector<Videogame> libraryGames = Videogame::AllGames();
+std::vector<Videogame> libraryGames = Videogame::AllGames();
+
+void Library::RefreshGamesList(std::vector<Videogame> libraryGames) {
 	this->m_ui.lw_library->clear();
 	std::for_each(begin(libraryGames), end(libraryGames),
 		[&](const Videogame& videogame) {
@@ -65,6 +72,10 @@ void Library::RefreshGamesList() {
 	);
 }
 
+void Library::RefreshGamesList() {
+	this->FiltersUpdated();
+}
+
 void Library::lw_gameSelected()
 {
 	std::string selectedGameTitle = dynamic_cast<CoverListItem*>(this->m_ui.lw_library->itemWidget(this->m_ui.lw_library->currentItem()))->GetTitle();
@@ -74,4 +85,12 @@ void Library::lw_gameSelected()
 void Library::bt_addGameClicked()
 {
 	emit addGame();
+}
+
+void Library::FiltersUpdated()
+{
+	std::vector<Videogame> searchResults;
+	SearchParams filters(m_ui.ck_launched->isChecked(), m_ui.ck_favourite->isChecked(), m_ui.le_searchBar->text().toStdString(), (SearchOrder)(m_ui.cb_order->currentIndex()));
+	searchResults = Videogame::Search(filters);
+	RefreshGamesList(searchResults);
 }

@@ -12,12 +12,13 @@ public:
 	Library(QWidget *parent);
 	~Library();
 
+	void RefreshGamesList(std::vector<Videogame> libraryGames);
 	void RefreshGamesList();
 
 protected slots:
 	void lw_gameSelected();
 	void bt_addGameClicked();
-
+	void FiltersUpdated();
 signals:
 	void gameSelected(const std::string& title);
 	void addGame();

@@ -4,6 +4,22 @@
 
 #include "videogamedb.h"
 
+
+enum SearchOrder {
+	Alphabetic = 0,
+	ReleaseDate,
+	AdditionDate
+};
+
+struct SearchParams {
+	bool launched;
+	bool favourite;
+	std::string title;
+	SearchOrder order;
+
+	SearchParams(bool launched, bool favourite, std::string title, SearchOrder order);
+};
+
 class Videogame
 {
 protected:
@@ -65,6 +81,10 @@ public:
 	// Static functions
 	static std::vector<Videogame> AllGames() {
 		return VideogameDB::AllGames();
+	}
+
+	static std::vector<Videogame> Search(SearchParams filters) {
+		return VideogameDB::Search(filters);
 	}
 
 };

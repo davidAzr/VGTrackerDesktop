@@ -1,6 +1,7 @@
 #include "videogamedb.h"
 #include "videogame.h"
 
+
 VideogameDB::VideogameDB()
 {
 	m_conn = mysql_init(0);
@@ -73,11 +74,58 @@ std::vector<Videogame> VideogameDB::AllGames()
 	conn = mysql_real_connect(conn, "localhost", "root", "MyNewPass", "testdb", 3306, NULL, 0);
 
 	if (conn) {
-		std::string query = "SELECT title, summary, DATE_FORMAT(releaseDate, \"%M %D, %Y\") FROM Videogame ;";
+		std::string query = "SELECT title, summary, releaseDate, DATE_FORMAT(releaseDate, \"%M %D, %Y\") FROM Videogame;";
 		const char* q = query.c_str();
 		int qstate = mysql_query(conn, q);
 		if (!qstate) {
 			
+			MYSQL_RES* res = mysql_store_result(conn);
+			MYSQL_ROW row;
+			while (row = mysql_fetch_row(res)) {
+				Videogame videogame;
+				if (row[0] != NULL) videogame.SetTitle(std::string(row[0]));
+				if (row[1] != NULL) videogame.SetSummary(std::string(row[1]));
+				if (row[2] != NULL) videogame.SetSqlReleaseDate(std::string(row[2]));
+				if (row[3] != NULL) videogame.SetReleaseDate(std::string(row[3]));
+				videogames.push_back(videogame);
+			}
+		}
+	}
+	return videogames;
+}
+
+std::vector<Videogame> VideogameDB::Search(SearchParams filters)
+{
+	std::vector<Videogame> videogames;
+
+	MYSQL* conn;
+	conn = mysql_init(0);
+	conn = mysql_real_connect(conn, "localhost", "root", "MyNewPass", "testdb", 3306, NULL, 0);
+
+
+	std::string titleFilter, dateFilter, favouriteFilter, orderFilter;
+
+	titleFilter = " WHERE title LIKE '%" + filters.title + "%' ";
+	if (filters.launched) dateFilter = " AND releaseDate > CURDATE() ";
+	if (filters.favourite) favouriteFilter = ""; // To Do
+	switch (filters.order) {
+		case SearchOrder::Alphabetic:
+			orderFilter = " ORDER BY title ";
+			break;
+		case SearchOrder::AdditionDate:
+			orderFilter = "";
+			break;
+		case SearchOrder::ReleaseDate:
+			orderFilter = " ORDER BY releaseDate DESC ";
+			break;
+	}
+
+	if (conn) {
+		std::string query = "SELECT title, summary, releaseDate, DATE_FORMAT(releaseDate, \"%M %D, %Y\") FROM Videogame " + titleFilter + dateFilter + favouriteFilter + orderFilter + ";";
+		const char* q = query.c_str();
+		int qstate = mysql_query(conn, q);
+		if (!qstate) {
+
 			MYSQL_RES* res = mysql_store_result(conn);
 			MYSQL_ROW row;
 			while (row = mysql_fetch_row(res)) {
