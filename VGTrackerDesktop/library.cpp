@@ -24,8 +24,18 @@ Library::Library(QWidget *parent)
 	shadowEffect->setColor(shadowColor);
 	this->m_ui.fr_filtersHolder->setGraphicsEffect(shadowEffect);
 
-	QFont nunito = Fonts::GetFont(Fonts::FontNames::NunitoRegular);
-	this->setFont(nunito);
+	QFont nunito = Fonts::GetFont(Fonts::FontNames::NunitoExtraBold);
+	nunito.setPointSize(9);
+	this->m_ui.ck_favourite->setFont(nunito);
+	this->m_ui.ck_launched->setFont(nunito);
+	this->m_ui.lb_order->setFont(nunito);
+	this->m_ui.cb_order->setFont(nunito);
+	this->m_ui.le_searchBar->setFont(nunito);
+	this->m_ui.ck_favourite->setFont(nunito);
+	this->m_ui.ck_launched->setFont(nunito);
+	this->m_ui.lb_order->setFont(nunito);
+	this->m_ui.cb_order->setFont(nunito);
+	this->m_ui.le_searchBar->setFont(nunito);
 	
 	this->RefreshGamesList();
 }
