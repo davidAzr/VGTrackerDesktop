@@ -14,10 +14,11 @@ enum SearchOrder {
 struct SearchParams {
 	bool launched;
 	bool favourite;
+	bool incomingReleases;
 	std::string title;
 	SearchOrder order;
 
-	SearchParams(bool launched, bool favourite, std::string title, SearchOrder order);
+	SearchParams(bool launched, bool favourite, std::string title, SearchOrder order, bool incomingReleases = false);
 };
 
 class Videogame

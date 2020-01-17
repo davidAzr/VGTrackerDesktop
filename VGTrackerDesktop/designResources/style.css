@@ -296,3 +296,11 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 .filtersLabel {
     color: rgb(221, 221, 221);
 }
+
+.listItemCoverImage {
+
+}
+
+.labelNoGames {
+    color: rgb(220,220,220);
+}

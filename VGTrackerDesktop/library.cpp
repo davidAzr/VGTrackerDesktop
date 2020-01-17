@@ -36,6 +36,10 @@ Library::Library(QWidget *parent)
 	this->m_ui.lb_order->setFont(nunito);
 	this->m_ui.cb_order->setFont(nunito);
 	this->m_ui.le_searchBar->setFont(nunito);
+	nunito.setPointSize(12);
+	this->m_ui.bt_addGame->setFont(nunito);
+	nunito.setPointSize(13);
+	this->m_ui.lb_noGames->setFont(nunito);
 	
 	this->RefreshGamesList();
 	
@@ -50,26 +54,33 @@ Library::~Library()
 {
 }
 
-std::vector<Videogame> libraryGames = Videogame::AllGames();
-
 void Library::RefreshGamesList(std::vector<Videogame> libraryGames) {
 	this->m_ui.lw_library->clear();
-	std::for_each(begin(libraryGames), end(libraryGames),
-		[&](const Videogame& videogame) {
-		std::string itemNameStr = videogame.GetTitle();
-		CoverListItem* newRealItem = new CoverListItem(this, itemNameStr);
-		QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect();
-		shadowEffect->setBlurRadius(40);
-		QColor shadowColor;
-		shadowColor.setNamedColor("black");
-		shadowEffect->setColor(shadowColor);
-		newRealItem->setGraphicsEffect(shadowEffect);
-		QListWidgetItem* newItem = new QListWidgetItem();
-		newItem->setSizeHint(newRealItem->sizeHint());
-		m_ui.lw_library->addItem(newItem);
-		m_ui.lw_library->setItemWidget(newItem, newRealItem);
+	if (libraryGames.size() == 0) {
+		this->m_ui.lw_library->setVisible(false);
+		this->m_ui.lb_noGames->setVisible(true);
 	}
-	);
+	else {
+		std::for_each(begin(libraryGames), end(libraryGames),
+			[&](const Videogame& videogame) {
+			std::string itemNameStr = videogame.GetTitle();
+			CoverListItem* newRealItem = new CoverListItem(this, itemNameStr);
+			QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect();
+			shadowEffect->setBlurRadius(40);
+			QColor shadowColor;
+			shadowColor.setNamedColor("black");
+			shadowEffect->setColor(shadowColor);
+			newRealItem->setGraphicsEffect(shadowEffect);
+			QListWidgetItem* newItem = new QListWidgetItem();
+			newItem->setSizeHint(newRealItem->sizeHint());
+			m_ui.lw_library->addItem(newItem);
+			m_ui.lw_library->setItemWidget(newItem, newRealItem);
+		}
+		);
+
+		this->m_ui.lb_noGames->setVisible(false);
+		this->m_ui.lw_library->setVisible(true);
+	}
 }
 
 void Library::RefreshGamesList() {

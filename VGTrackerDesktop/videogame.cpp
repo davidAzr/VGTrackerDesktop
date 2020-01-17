@@ -1,7 +1,7 @@
 #include "videogame.h"
 
 
-SearchParams::SearchParams(bool launched, bool favourite, std::string title, SearchOrder order) : launched(launched), favourite(favourite), title(title), order(order) {
+SearchParams::SearchParams(bool launched, bool favourite, std::string title, SearchOrder order, bool incomingReleases) : launched(launched), favourite(favourite), title(title), order(order), incomingReleases(incomingReleases) {
 
 }
 

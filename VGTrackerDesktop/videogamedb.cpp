@@ -107,13 +107,13 @@ std::vector<Videogame> VideogameDB::Search(SearchParams filters)
 
 	titleFilter = " WHERE title LIKE '%" + filters.title + "%' ";
 	if (filters.launched) dateFilter = " AND releaseDate > CURDATE() ";
-	if (filters.favourite) favouriteFilter = ""; // To Do
+	if (filters.favourite) favouriteFilter = "AND favourite = true"; // To Do
 	switch (filters.order) {
 		case SearchOrder::Alphabetic:
 			orderFilter = " ORDER BY title ";
 			break;
 		case SearchOrder::AdditionDate:
-			orderFilter = "";
+			orderFilter = " ORDER BY additionDate DESC";
 			break;
 		case SearchOrder::ReleaseDate:
 			orderFilter = " ORDER BY releaseDate DESC ";
@@ -122,6 +122,7 @@ std::vector<Videogame> VideogameDB::Search(SearchParams filters)
 
 	if (conn) {
 		std::string query = "SELECT title, summary, releaseDate, DATE_FORMAT(releaseDate, \"%M %D, %Y\") FROM Videogame " + titleFilter + dateFilter + favouriteFilter + orderFilter + ";";
+		if (filters.incomingReleases) query = "SELECT title, summary, releaseDate, DATE_FORMAT(releaseDate, \"%M %D, %Y\") FROM Videogame WHERE releaseDate > CURDATE() ORDER BY releaseDate ASC";
 		const char* q = query.c_str();
 		int qstate = mysql_query(conn, q);
 		if (!qstate) {
