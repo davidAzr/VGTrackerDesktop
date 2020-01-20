@@ -14,6 +14,7 @@ public:
 
 	void RefreshGamesList(std::vector<Videogame> libraryGames);
 	void RefreshGamesList();
+	void FiltersUpdated(SearchParams filters);
 
 protected slots:
 	void lw_gameSelected();

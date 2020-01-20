@@ -83,7 +83,8 @@ void AddGameForm::bt_addClicked()
 		
 	
 		bool updateLibrary = this->m_videogame->Save();
-		emit goLibrary(updateLibrary);
+		SearchParams params;
+		emit goLibrary(updateLibrary, params);
 	}
 }
 

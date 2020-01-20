@@ -16,7 +16,7 @@ public:
 
 signals:
 	void goGameInfo(const std::string& title);
-	void goLibrary(bool update);
+	void goLibrary(bool update, SearchParams params);
 
 protected slots:
 	void bt_deleteClicked();

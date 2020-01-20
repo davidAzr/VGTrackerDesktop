@@ -118,6 +118,9 @@ std::vector<Videogame> VideogameDB::Search(SearchParams filters)
 		case SearchOrder::ReleaseDate:
 			orderFilter = " ORDER BY releaseDate DESC ";
 			break;
+		case SearchOrder::None:
+			orderFilter = " ";
+			break;
 	}
 
 	if (conn) {

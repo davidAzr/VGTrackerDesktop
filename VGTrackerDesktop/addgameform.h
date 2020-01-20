@@ -16,7 +16,7 @@ public:
 	void Reset();
 
 signals:
-	void goLibrary(bool update);
+	void goLibrary(bool update, SearchParams params);
 
 protected slots:
 	void GetSelectedFile();

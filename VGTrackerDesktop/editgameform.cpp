@@ -1,6 +1,7 @@
 #include "editgameform.h"
 #include "auxiliary.h"
 #include <filesystem>
+#include "fonts.h"
 
 EditGameForm::EditGameForm(QWidget *parent)
 	: QWidget(parent)
@@ -8,7 +9,6 @@ EditGameForm::EditGameForm(QWidget *parent)
 	this->m_ui.setupUi(this);
 	connect(this->m_ui.bt_update, &QPushButton::clicked, this, &EditGameForm::bt_updateClicked);
 	connect(this->m_ui.bt_delete, &QPushButton::clicked, this, &EditGameForm::bt_deleteClicked);
-	
 }
 
 EditGameForm::~EditGameForm()
@@ -24,7 +24,8 @@ void EditGameForm::SetUp(Videogame * videogame)
 
 void EditGameForm::bt_deleteClicked() {
 	m_videogame->Delete();
-	emit goLibrary(true);
+	SearchParams params;
+	emit goLibrary(true, params);
 }
 
 void EditGameForm::bt_updateClicked() {

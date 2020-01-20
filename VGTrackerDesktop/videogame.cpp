@@ -5,6 +5,10 @@ SearchParams::SearchParams(bool launched, bool favourite, std::string title, Sea
 
 }
 
+SearchParams::SearchParams() : launched(0), favourite(0), title("%%"), order(SearchOrder::None), incomingReleases(0) {
+
+}
+
 Videogame::Videogame()
 {
 	m_title = "NOT LOADED";

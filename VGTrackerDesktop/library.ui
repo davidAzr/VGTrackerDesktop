@@ -218,10 +218,10 @@
        <number>18</number>
       </property>
       <item row="0" column="0">
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="lb_title">
         <property name="font">
          <font>
-          <pointsize>18</pointsize>
+          <pointsize>17</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>

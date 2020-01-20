@@ -8,7 +8,8 @@
 enum SearchOrder {
 	Alphabetic = 0,
 	ReleaseDate,
-	AdditionDate
+	AdditionDate,
+	None
 };
 
 struct SearchParams {
@@ -19,6 +20,7 @@ struct SearchParams {
 	SearchOrder order;
 
 	SearchParams(bool launched, bool favourite, std::string title, SearchOrder order, bool incomingReleases = false);
+	SearchParams();
 };
 
 class Videogame

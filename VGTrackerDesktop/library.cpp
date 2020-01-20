@@ -40,14 +40,16 @@ Library::Library(QWidget *parent)
 	this->m_ui.bt_addGame->setFont(nunito);
 	nunito.setPointSize(13);
 	this->m_ui.lb_noGames->setFont(nunito);
+	//nunito.setPointSize(17);
+	//this->m_ui.lb_title->setFont(nunito);
 	
 	this->RefreshGamesList();
 	
 	// Filters
-	connect(this->m_ui.le_searchBar, &QLineEdit::returnPressed, this, &Library::FiltersUpdated);
-	connect(this->m_ui.ck_favourite, &QCheckBox::clicked, this, &Library::FiltersUpdated);
-	connect(this->m_ui.ck_launched, &QCheckBox::clicked, this, &Library::FiltersUpdated);
-	connect(this->m_ui.cb_order, qOverload<int>(&QComboBox::currentIndexChanged), this, &Library::FiltersUpdated);
+	connect(this->m_ui.le_searchBar, &QLineEdit::returnPressed, this, qOverload<>(&Library::FiltersUpdated));
+	connect(this->m_ui.ck_favourite, &QCheckBox::clicked, this, qOverload<>(&Library::FiltersUpdated));
+	connect(this->m_ui.ck_launched, &QCheckBox::clicked, this, qOverload<>(&Library::FiltersUpdated));
+	connect(this->m_ui.cb_order, qOverload<int>(&QComboBox::currentIndexChanged), this, qOverload<>(&Library::FiltersUpdated));
 }
 
 Library::~Library()
@@ -103,5 +105,11 @@ void Library::FiltersUpdated()
 	std::vector<Videogame> searchResults;
 	SearchParams filters(m_ui.ck_launched->isChecked(), m_ui.ck_favourite->isChecked(), m_ui.le_searchBar->text().toStdString(), (SearchOrder)(m_ui.cb_order->currentIndex()));
 	searchResults = Videogame::Search(filters);
+	RefreshGamesList(searchResults);
+}
+
+void Library::FiltersUpdated(SearchParams filters)
+{
+	std::vector<Videogame> searchResults = Videogame::Search(filters);
 	RefreshGamesList(searchResults);
 }

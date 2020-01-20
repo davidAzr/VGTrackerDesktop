@@ -1,5 +1,6 @@
 #include "gameinfo.h"
 #include <QGraphicsDropShadowEffect>
+#include "fonts.h"
 
 GameInfo::GameInfo(QWidget *parent)
 	: QWidget(parent)
@@ -44,6 +45,11 @@ GameInfo::GameInfo(QWidget *parent)
 	shadowColor.setNamedColor("black");
 	shadowEffect->setColor(shadowColor);
 	this->m_ui.bt_editGame->setGraphicsEffect(shadowEffect);
+
+	QFont nunito = Fonts::GetFont(Fonts::FontNames::NunitoSemiBold);
+	nunito.setPointSize(12);
+	this->m_ui.lb_summary->setFont(nunito);
+
 }
 
 GameInfo::~GameInfo()

@@ -1,6 +1,5 @@
 #include "homescreen.h"
 #include "fonts.h"
-#include "videogame.h"
 #include "coverlistitem.h"
 #include <QGraphicsDropShadowEffect>
 
@@ -8,20 +7,14 @@ HomeScreen::HomeScreen(QWidget *parent)
 	: QWidget(parent)
 {
 	this->m_ui.setupUi(this);
-	
-	QFont nunito = Fonts::GetFont(Fonts::FontNames::NunitoExtraBold);
-	nunito.setPointSize(10);
-	this->m_ui.lb_lastAdded->setFont(nunito);
-	this->m_ui.lb_incomingReleases->setFont(nunito);
-	this->m_ui.lb_favouriteGames->setFont(nunito);
-	this->m_ui.bt_seeLastAdded->setFont(nunito);
-	this->m_ui.bt_seeIncomingReleases->setFont(nunito);
-	this->m_ui.bt_seeFavouriteGames->setFont(nunito);
 
-	nunito = Fonts::GetFont(Fonts::FontNames::NunitoExtraBold);
-	this->m_ui.lb_noGamesLastAdded->setFont(nunito);
-	this->m_ui.lb_noGamesIncoming->setFont(nunito);
-	this->m_ui.lb_noGamesFav->setFont(nunito);
+	connect(this->m_ui.bt_seeLastAdded, &QPushButton::clicked, this, &HomeScreen::bt_seeAllLastClicked);
+	connect(this->m_ui.bt_seeIncomingReleases, &QPushButton::clicked, this, &HomeScreen::bt_seeAllIncomingClicked);
+	connect(this->m_ui.bt_seeFavouriteGames, &QPushButton::clicked, this, &HomeScreen::bt_seeAllFavouriteClicked);
+
+	connect(this->m_ui.lw_lastAdded, &QListWidget::itemClicked, this, &HomeScreen::lw_lastSelected);
+	connect(this->m_ui.lw_incomingReleases, &QListWidget::itemClicked, this, &HomeScreen::lw_incSelected);
+	connect(this->m_ui.lw_favouriteGames, &QListWidget::itemClicked, this, &HomeScreen::lw_favSelected);
 	
 	QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect();
 	shadowEffect->setBlurRadius(20);
@@ -77,6 +70,23 @@ HomeScreen::HomeScreen(QWidget *parent)
 	shadowColor.setNamedColor("black");
 	shadowEffect->setColor(shadowColor);
 	this->m_ui.bt_seeIncomingReleases->setGraphicsEffect(shadowEffect);
+
+	QFont nunito("Arial", 24, QFont::Bold);
+	QWidget::setFont(nunito);
+	nunito.setPointSize(17);
+	this->m_ui.scrollAreaWidgetContents->setFont(nunito);
+	this->setFont(nunito);
+	this->m_ui.lb_lastAdded->setFont(nunito);
+	this->m_ui.lb_incomingReleases->setFont(nunito);
+	this->m_ui.lb_favouriteGames->setFont(nunito);
+	this->m_ui.bt_seeLastAdded->setFont(nunito);
+	this->m_ui.bt_seeIncomingReleases->setFont(nunito);
+	this->m_ui.bt_seeFavouriteGames->setFont(nunito);
+
+	nunito = Fonts::GetFont(Fonts::FontNames::NunitoExtraBold);
+	this->m_ui.lb_noGamesLastAdded->setFont(nunito);
+	this->m_ui.lb_noGamesIncoming->setFont(nunito);
+	this->m_ui.lb_noGamesFav->setFont(nunito);
 	
 	RefreshGamesLists();
 }
@@ -84,6 +94,7 @@ HomeScreen::HomeScreen(QWidget *parent)
 HomeScreen::~HomeScreen()
 {
 }
+
 void HomeScreen::RefreshGamesLists() {
 	std::vector<Videogame> gameList;
 	this->m_ui.lw_favouriteGames->clear();
@@ -180,3 +191,33 @@ void HomeScreen::RefreshGamesLists() {
 	
 }
 
+void HomeScreen::bt_seeAllLastClicked() {
+	SearchParams params(0, 0, "%%", SearchOrder::AdditionDate);
+	emit goLibrary(1, params);
+}
+
+void HomeScreen::bt_seeAllIncomingClicked() {
+	SearchParams params(0, 0, "%%", SearchOrder::None, 1);
+	emit goLibrary(1, params);
+}
+
+void HomeScreen::bt_seeAllFavouriteClicked() {
+	SearchParams params(0, 1, "%%", SearchOrder::None);
+	emit goLibrary(1, params);
+}
+
+void HomeScreen::lw_favSelected()
+{
+	std::string selectedGameTitle = dynamic_cast<CoverListItem*>(this->m_ui.lw_favouriteGames->itemWidget(this->m_ui.lw_favouriteGames->currentItem()))->GetTitle();
+	emit gameSelected(selectedGameTitle);
+}
+void HomeScreen::lw_lastSelected()
+{
+	std::string selectedGameTitle = dynamic_cast<CoverListItem*>(this->m_ui.lw_lastAdded->itemWidget(this->m_ui.lw_lastAdded->currentItem()))->GetTitle();
+	emit gameSelected(selectedGameTitle);
+}
+void HomeScreen::lw_incSelected()
+{
+	std::string selectedGameTitle = dynamic_cast<CoverListItem*>(this->m_ui.lw_incomingReleases->itemWidget(this->m_ui.lw_incomingReleases->currentItem()))->GetTitle();
+	emit gameSelected(selectedGameTitle);
+}
