@@ -61,6 +61,9 @@
     <ClCompile Include="homescreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="heartbutton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="coverlistitem.h">
@@ -82,6 +85,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="homescreen.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="heartbutton.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

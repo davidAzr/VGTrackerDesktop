@@ -20,6 +20,7 @@ signals:
 
 protected slots:
 	void bt_editGame();
+	void bt_favouriteClicked();
 
 protected:
 	Ui::GameInfo m_ui;

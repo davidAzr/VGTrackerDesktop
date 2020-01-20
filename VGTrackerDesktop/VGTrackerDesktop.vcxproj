@@ -102,6 +102,7 @@
     <ClCompile Include="editgameform.cpp" />
     <ClCompile Include="fonts.cpp" />
     <ClCompile Include="gameinfo.cpp" />
+    <ClCompile Include="heartbutton.cpp" />
     <ClCompile Include="homescreen.cpp" />
     <ClCompile Include="library.cpp" />
     <ClCompile Include="main.cpp" />
@@ -134,6 +135,7 @@
     <QtMoc Include="editgameform.h" />
     <ClInclude Include="fonts.h" />
     <QtMoc Include="homescreen.h" />
+    <QtMoc Include="heartbutton.h" />
     <ClInclude Include="videogame.h" />
     <ClInclude Include="videogamedb.h" />
   </ItemGroup>

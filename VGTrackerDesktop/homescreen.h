@@ -28,4 +28,5 @@ protected slots:
 
 protected:
 	Ui::HomeScreen m_ui;
+	void AddStyleElements();
 };

@@ -16,6 +16,30 @@ HomeScreen::HomeScreen(QWidget *parent)
 	connect(this->m_ui.lw_incomingReleases, &QListWidget::itemClicked, this, &HomeScreen::lw_incSelected);
 	connect(this->m_ui.lw_favouriteGames, &QListWidget::itemClicked, this, &HomeScreen::lw_favSelected);
 	
+	AddStyleElements();
+
+	RefreshGamesLists();
+}
+
+HomeScreen::~HomeScreen()
+{
+}
+
+void HomeScreen::AddStyleElements()
+{
+	QFont nunito = Fonts::GetFont(Fonts::FontNames::NunitoLight);
+	
+	this->m_ui.lb_lastAdded->setFont(nunito);
+	this->m_ui.lb_incomingReleases->setFont(nunito);
+	this->m_ui.lb_favouriteGames->setFont(nunito);
+	this->m_ui.bt_seeLastAdded->setFont(nunito);
+	this->m_ui.bt_seeIncomingReleases->setFont(nunito);
+	this->m_ui.bt_seeFavouriteGames->setFont(nunito);
+
+	this->m_ui.lb_noGamesLastAdded->setFont(nunito);
+	this->m_ui.lb_noGamesIncoming->setFont(nunito);
+	this->m_ui.lb_noGamesFav->setFont(nunito);
+	
 	QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect();
 	shadowEffect->setBlurRadius(20);
 	QColor shadowColor;
@@ -71,28 +95,7 @@ HomeScreen::HomeScreen(QWidget *parent)
 	shadowEffect->setColor(shadowColor);
 	this->m_ui.bt_seeIncomingReleases->setGraphicsEffect(shadowEffect);
 
-	QFont nunito("Arial", 24, QFont::Bold);
-	QWidget::setFont(nunito);
-	nunito.setPointSize(17);
-	this->m_ui.scrollAreaWidgetContents->setFont(nunito);
-	this->setFont(nunito);
-	this->m_ui.lb_lastAdded->setFont(nunito);
-	this->m_ui.lb_incomingReleases->setFont(nunito);
-	this->m_ui.lb_favouriteGames->setFont(nunito);
-	this->m_ui.bt_seeLastAdded->setFont(nunito);
-	this->m_ui.bt_seeIncomingReleases->setFont(nunito);
-	this->m_ui.bt_seeFavouriteGames->setFont(nunito);
 
-	nunito = Fonts::GetFont(Fonts::FontNames::NunitoExtraBold);
-	this->m_ui.lb_noGamesLastAdded->setFont(nunito);
-	this->m_ui.lb_noGamesIncoming->setFont(nunito);
-	this->m_ui.lb_noGamesFav->setFont(nunito);
-	
-	RefreshGamesLists();
-}
-
-HomeScreen::~HomeScreen()
-{
 }
 
 void HomeScreen::RefreshGamesLists() {

@@ -127,7 +127,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>D:/David/Downloads/book.png</normaloff>D:/David/Downloads/book.png</iconset>
+          <normaloff>D:/David/Downloads/library.png</normaloff>D:/David/Downloads/library.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -159,7 +159,7 @@
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>D:/David/Downloads/help-web-button.png</normaloff>D:/David/Downloads/help-web-button.png</iconset>
+          <normaloff>D:/David/Downloads/brush (4).png</normaloff>D:/David/Downloads/brush (4).png</iconset>
         </property>
         <property name="iconSize">
          <size>

@@ -154,6 +154,8 @@ QTabBar::tab {
 
 .gameInfoTab::pane {
     border: 1px solid purple;
+    border-radius: 4px;
+    border-top-left-radius: 0px;
     background: rgb(45,45,45);
 }
 
@@ -304,3 +306,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 .labelNoGames {
     color: rgb(220,220,220);
 }
+
+.heartButton {
+    background-color: transparent;
+}
+    
