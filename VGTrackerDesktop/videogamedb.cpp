@@ -11,12 +11,21 @@ VideogameDB::VideogameDB()
 bool VideogameDB::Save(Videogame * videogame)
 {
 	if (m_conn) {
-		std::string query = "INSERT INTO Videogame VALUES ('" + videogame->GetTitle() + "', '" + videogame->GetSummary() + "', '" + videogame->GetReleaseDate() + "');";
+		std::string summary = videogame->GetSummary();
+		char * from, 
+			 * to;
+		from = new char(summary.length());
+		to = new char(summary.length());
+		strcpy(from, summary.c_str());
+		mysql_real_escape_string(m_conn, to, from, summary.length());
+		
+		std::string query = "INSERT INTO Videogame VALUES ('" + videogame->GetTitle() + "', '" + to + "', '" + videogame->GetReleaseDate() + "', CURDATE(), 0);";
 		const char* q = query.c_str();
 		int qstate = mysql_query(m_conn, q);
 		if (!qstate) {
 			return true;
 		}
+		delete to, from;
 	}
 	return false;
 }
@@ -24,12 +33,22 @@ bool VideogameDB::Save(Videogame * videogame)
 bool VideogameDB::Update(Videogame * videogame)
 {
 	if (m_conn) {
-		std::string query = "UPDATE Videogame SET summary='" + videogame->GetSummary() + "', releaseDate='" + videogame->GetSqlReleaseDate() + "', favourite='" + std::to_string(videogame->GetFavourite()) + "' WHERE title='" + videogame->GetTitle() + "';";
+
+		std::string summary = videogame->GetSummary();
+		char * from,
+			*to;
+		from = new char(summary.length());
+		to = new char(summary.length());
+		strcpy(from, summary.c_str());
+		mysql_real_escape_string(m_conn, to, from, summary.length());
+
+		std::string query = "UPDATE Videogame SET summary='" + std::string(to) + "', releaseDate='" + videogame->GetSqlReleaseDate() + "', favourite='" + std::to_string(videogame->GetFavourite()) + "' WHERE title='" + videogame->GetTitle() + "';";
 		const char* q = query.c_str();
 		int qstate = mysql_query(m_conn, q);
 		if (!qstate) {
 			return true;
 		}
+		delete to, from;
 	}
 	return false;
 }
