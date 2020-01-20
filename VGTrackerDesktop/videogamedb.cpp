@@ -1,6 +1,6 @@
 #include "videogamedb.h"
 #include "videogame.h"
-
+#include <string>
 
 VideogameDB::VideogameDB()
 {
@@ -24,7 +24,7 @@ bool VideogameDB::Save(Videogame * videogame)
 bool VideogameDB::Update(Videogame * videogame)
 {
 	if (m_conn) {
-		std::string query = "UPDATE Videogame SET summary='" + videogame->GetSummary() + "', releaseDate='" + videogame->GetSqlReleaseDate() + "' WHERE title='" + videogame->GetTitle() + "';";
+		std::string query = "UPDATE Videogame SET summary='" + videogame->GetSummary() + "', releaseDate='" + videogame->GetSqlReleaseDate() + "', favourite='" + std::to_string(videogame->GetFavourite()) + "' WHERE title='" + videogame->GetTitle() + "';";
 		const char* q = query.c_str();
 		int qstate = mysql_query(m_conn, q);
 		if (!qstate) {
@@ -50,7 +50,7 @@ bool VideogameDB::Delete(Videogame * videogame)
 Videogame VideogameDB::Read(std::string title) {
 	Videogame videogame;
 	if (m_conn) {
-		std::string query = "SELECT title, summary, releaseDate, DATE_FORMAT(releaseDate, \"%M %D, %Y\") FROM Videogame WHERE title='" + title + "';";
+		std::string query = "SELECT title, summary, releaseDate, DATE_FORMAT(releaseDate, \"%M %D, %Y\"), favourite FROM Videogame WHERE title='" + title + "';";
 		const char* q = query.c_str();
 		int qstate = mysql_query(m_conn, q);
 		if (!qstate) {
@@ -60,6 +60,7 @@ Videogame VideogameDB::Read(std::string title) {
 			if (row[1] != NULL) videogame.SetSummary(std::string(row[1]));
 			if (row[2] != NULL) videogame.SetSqlReleaseDate(std::string(row[2]));
 			if (row[3] != NULL) videogame.SetReleaseDate(std::string(row[3]));
+			if (row[4] != NULL) videogame.SetFavourite(atoi(std::string(row[4]).c_str()));
 		}
 	}
 	return videogame;
@@ -74,7 +75,7 @@ std::vector<Videogame> VideogameDB::AllGames()
 	conn = mysql_real_connect(conn, "localhost", "root", "MyNewPass", "testdb", 3306, NULL, 0);
 
 	if (conn) {
-		std::string query = "SELECT title, summary, releaseDate, DATE_FORMAT(releaseDate, \"%M %D, %Y\") FROM Videogame;";
+		std::string query = "SELECT title, summary, releaseDate, DATE_FORMAT(releaseDate, \"%M %D, %Y\"), favourite FROM Videogame;";
 		const char* q = query.c_str();
 		int qstate = mysql_query(conn, q);
 		if (!qstate) {
@@ -87,6 +88,7 @@ std::vector<Videogame> VideogameDB::AllGames()
 				if (row[1] != NULL) videogame.SetSummary(std::string(row[1]));
 				if (row[2] != NULL) videogame.SetSqlReleaseDate(std::string(row[2]));
 				if (row[3] != NULL) videogame.SetReleaseDate(std::string(row[3]));
+				if (row[4] != NULL) videogame.SetFavourite(atoi(std::string(row[4]).c_str()));
 				videogames.push_back(videogame);
 			}
 		}
@@ -124,8 +126,8 @@ std::vector<Videogame> VideogameDB::Search(SearchParams filters)
 	}
 
 	if (conn) {
-		std::string query = "SELECT title, summary, releaseDate, DATE_FORMAT(releaseDate, \"%M %D, %Y\") FROM Videogame " + titleFilter + dateFilter + favouriteFilter + orderFilter + ";";
-		if (filters.incomingReleases) query = "SELECT title, summary, releaseDate, DATE_FORMAT(releaseDate, \"%M %D, %Y\") FROM Videogame WHERE releaseDate > CURDATE() ORDER BY releaseDate ASC";
+		std::string query = "SELECT title, summary, releaseDate, DATE_FORMAT(releaseDate, \"%M %D, %Y\"), favourite FROM Videogame " + titleFilter + dateFilter + favouriteFilter + orderFilter + ";";
+		if (filters.incomingReleases) query = "SELECT title, summary, releaseDate, DATE_FORMAT(releaseDate, \"%M %D, %Y\"), favourite FROM Videogame WHERE releaseDate > CURDATE() ORDER BY releaseDate ASC";
 		const char* q = query.c_str();
 		int qstate = mysql_query(conn, q);
 		if (!qstate) {
@@ -136,7 +138,9 @@ std::vector<Videogame> VideogameDB::Search(SearchParams filters)
 				Videogame videogame;
 				if (row[0] != NULL) videogame.SetTitle(std::string(row[0]));
 				if (row[1] != NULL) videogame.SetSummary(std::string(row[1]));
-				if (row[2] != NULL) videogame.SetReleaseDate(std::string(row[2]));
+				if (row[2] != NULL) videogame.SetSqlReleaseDate(std::string(row[2]));
+				if (row[3] != NULL) videogame.SetReleaseDate(std::string(row[3]));
+				if (row[4] != NULL) videogame.SetFavourite(atoi(std::string(row[4]).c_str()));
 				videogames.push_back(videogame);
 			}
 		}

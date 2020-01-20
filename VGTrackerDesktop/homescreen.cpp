@@ -195,17 +195,17 @@ void HomeScreen::RefreshGamesLists() {
 }
 
 void HomeScreen::bt_seeAllLastClicked() {
-	SearchParams params(0, 0, "%%", SearchOrder::AdditionDate);
+	SearchParams params(0, 0, "", SearchOrder::AdditionDate);
 	emit goLibrary(1, params);
 }
 
 void HomeScreen::bt_seeAllIncomingClicked() {
-	SearchParams params(0, 0, "%%", SearchOrder::None, 1);
+	SearchParams params(0, 0, "", SearchOrder::None, 1);
 	emit goLibrary(1, params);
 }
 
 void HomeScreen::bt_seeAllFavouriteClicked() {
-	SearchParams params(0, 1, "%%", SearchOrder::None);
+	SearchParams params(0, 1, "", SearchOrder::None);
 	emit goLibrary(1, params);
 }
 

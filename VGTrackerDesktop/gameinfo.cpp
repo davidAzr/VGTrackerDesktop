@@ -68,6 +68,11 @@ void GameInfo::UpdateGameInfo()
 	m_ui.lb_title->setText(QString::fromStdString(m_gameShown.GetTitle()));
 	m_ui.lb_summary->setText(QString::fromStdString(m_gameShown.GetSummary()));
 	m_ui.lb_releasedate->setText(QString::fromStdString(m_gameShown.GetReleaseDate()));
+	m_ui.bt_favourite->ResetFavourited();
+
+	if (m_gameShown.GetFavourite()) {
+		m_ui.bt_favourite->ToggleFavourited();
+	}
 
 	std::string coverFile = "designResources/covers/" + m_gameShown.GetTitle() + ".jpg";
 	std::replace(std::begin(coverFile), std::end(coverFile), ':', ';');
@@ -82,4 +87,6 @@ void GameInfo::bt_editGame() {
 
 void GameInfo::bt_favouriteClicked() {
 	m_ui.bt_favourite->ToggleFavourited();
+	m_gameShown.ToggleFavourite();
+	m_gameShown.Update();
 }

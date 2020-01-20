@@ -27,4 +27,9 @@ public:
 			this->setIcon(m_heart);
 		}
 	}
+
+	void ResetFavourited() {
+		m_favourited = false;
+		this->setIcon(m_heart);
+	}
 };

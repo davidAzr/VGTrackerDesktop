@@ -53,11 +53,9 @@ void VGTrackerMainWindow::ShowLibrary(const bool& update, SearchParams params)
 	ChangeWindow(m_library.get());
 }
 
-void VGTrackerMainWindow::ShowHome(const bool& update)
+void VGTrackerMainWindow::ShowHome()
 {
-	if (update) {
-		this->m_homeScreen->RefreshGamesLists();
-	}
+	this->m_homeScreen->RefreshGamesLists();
 	ChangeWindow(m_homeScreen.get());
 }
 

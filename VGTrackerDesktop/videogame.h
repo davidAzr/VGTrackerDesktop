@@ -68,6 +68,9 @@ public:
 	std::string GetSqlReleaseDate() const {
 		return m_sqlReleaseDate;
 	}
+	bool GetFavourite() const {
+		return m_favourite;
+	}
 	void SetSummary(std::string& summary) {
 		m_summary = summary;
 	}
@@ -79,6 +82,12 @@ public:
 	}
 	void SetSqlReleaseDate(std::string& releaseDate) {
 		m_sqlReleaseDate = releaseDate;
+	}
+	void SetFavourite(bool favourite) {
+		m_favourite = favourite;
+	}
+	void ToggleFavourite() {
+		m_favourite = !m_favourite;
 	}
 
 	// Static functions
