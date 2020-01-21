@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>935</width>
-    <height>720</height>
+    <height>711</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,6 +17,284 @@
    <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="10">
+    <spacer name="horizontalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Preferred</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="5" column="2" colspan="8">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="class" stdset="0">
+      <string>gameInfoTab</string>
+     </property>
+     <widget class="QWidget" name="notes">
+      <attribute name="title">
+       <string>Notes</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="sizeAdjustPolicy">
+          <enum>QAbstractScrollArea::AdjustToContents</enum>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <property name="class" stdset="0">
+          <string>transparentFrame</string>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>601</width>
+            <height>299</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <widget class="NoteList" name="lw_noteList">
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="verticalScrollMode">
+              <enum>QAbstractItemView::ScrollPerPixel</enum>
+             </property>
+             <property name="horizontalScrollMode">
+              <enum>QAbstractItemView::ScrollPerPixel</enum>
+             </property>
+             <property name="flow">
+              <enum>QListView::TopToBottom</enum>
+             </property>
+             <property name="isWrapping" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="spacing">
+              <number>8</number>
+             </property>
+             <property name="uniformItemSizes">
+              <bool>false</bool>
+             </property>
+             <property name="selectionRectVisible">
+              <bool>false</bool>
+             </property>
+             <property name="itemAlignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="class" stdset="0">
+              <string>coverList</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QFrame" name="frame">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <property name="class" stdset="0">
+              <string>noteListItem</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_4">
+              <item row="1" column="0">
+               <widget class="IconButton" name="bt_addNote">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::RightToLeft</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>D:/David/Downloads/plus.png</normaloff>D:/David/Downloads/plus.png</iconset>
+                </property>
+                <property name="class" stdset="0">
+                 <string>buttonIconTransparent</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QTextEdit" name="te_newNote">
+                <property name="lineWrapMode">
+                 <enum>QTextEdit::WidgetWidth</enum>
+                </property>
+                <property name="placeholderText">
+                 <string>Add new note</string>
+                </property>
+                <property name="class" stdset="0">
+                 <string>transparentTextEdit</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="review">
+      <attribute name="title">
+       <string>Review</string>
+      </attribute>
+     </widget>
+    </widget>
+   </item>
+   <item row="1" column="0" rowspan="5">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Preferred</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>150</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="2" rowspan="3">
+    <widget class="QLabel" name="lb_cover">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>170</width>
+       <height>230</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>170</width>
+       <height>230</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>D:/David/Desktop/Cyberpunk 2077.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="4" colspan="3">
+    <widget class="QLabel" name="lb_title">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>CyberPunk 2077</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>formTitle</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="11" rowspan="5">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Preferred</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>150</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="8">
+    <widget class="QPushButton" name="bt_editGame">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Edit game...</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>labelButton</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="12">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Preferred</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
    <item row="2" column="4" colspan="2">
     <widget class="QLabel" name="lb_releasedate">
      <property name="sizePolicy">
@@ -64,110 +342,6 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="11" rowspan="5">
-    <spacer name="horizontalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Preferred</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>150</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="1" column="0" rowspan="5">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Preferred</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>150</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="2" column="8">
-    <widget class="QPushButton" name="bt_editGame">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>100</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>Edit game...</string>
-     </property>
-     <property name="class" stdset="0">
-      <string>labelButton</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="2" rowspan="3">
-    <widget class="QLabel" name="lb_cover">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>170</width>
-       <height>230</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>170</width>
-       <height>230</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>D:/David/Desktop/Cyberpunk 2077.jpg</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0" colspan="12">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Preferred</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
    <item row="1" column="9" rowspan="2">
     <widget class="HeartButton" name="bt_favourite">
      <property name="sizePolicy">
@@ -196,8 +370,8 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="10">
-    <spacer name="horizontalSpacer_3">
+   <item row="1" column="1">
+    <spacer name="horizontalSpacer_4">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -227,29 +401,6 @@
       </size>
      </property>
     </spacer>
-   </item>
-   <item row="1" column="4" colspan="3">
-    <widget class="QLabel" name="lb_title">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>20</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>CyberPunk 2077</string>
-     </property>
-     <property name="class" stdset="0">
-      <string>formTitle</string>
-     </property>
-    </widget>
    </item>
    <item row="3" column="4" colspan="6">
     <widget class="QLabel" name="lb_summary">
@@ -282,44 +433,21 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="1">
-    <spacer name="horizontalSpacer_4">
+   <item row="6" column="0" colspan="12">
+    <spacer name="verticalSpacer_3">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Vertical</enum>
      </property>
      <property name="sizeType">
       <enum>QSizePolicy::Preferred</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>40</width>
-       <height>20</height>
+       <width>20</width>
+       <height>40</height>
       </size>
      </property>
     </spacer>
-   </item>
-   <item row="5" column="2" colspan="8">
-    <widget class="QTabWidget" name="tabWidget">
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
-     <property name="class" stdset="0">
-      <string>gameInfoTab</string>
-     </property>
-     <widget class="QWidget" name="notes">
-      <attribute name="title">
-       <string>Notes</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="review">
-      <attribute name="title">
-       <string>Review</string>
-      </attribute>
-     </widget>
-    </widget>
    </item>
   </layout>
  </widget>
@@ -328,6 +456,16 @@
    <class>HeartButton</class>
    <extends>QPushButton</extends>
    <header>heartbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>NoteList</class>
+   <extends>QListWidget</extends>
+   <header>notelist.h</header>
+  </customwidget>
+  <customwidget>
+   <class>IconButton</class>
+   <extends>QPushButton</extends>
+   <header>iconbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

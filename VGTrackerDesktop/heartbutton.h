@@ -10,8 +10,8 @@ protected:
 	bool m_favourited;
 	QIcon m_heart, m_redheart, m_darkredheart;
 	
-	virtual void enterEvent(QEvent* e);
-	virtual void leaveEvent(QEvent* e);
+	virtual void enterEvent(QEvent* e) override;
+	virtual void leaveEvent(QEvent* e) override;
 
 
 public:

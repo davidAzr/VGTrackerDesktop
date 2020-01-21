@@ -5,7 +5,7 @@ VGTrackerMainWindow::VGTrackerMainWindow(QWidget *parent)
 	: QWidget(parent)
 {
 	
-	this->m_ui.setupUi(this);
+	m_ui.setupUi(this);
 	
 	//Check wether to keep creating all widgets on initialization
 	//or on demand
@@ -19,7 +19,7 @@ VGTrackerMainWindow::VGTrackerMainWindow(QWidget *parent)
 	m_editGameForm->setVisible(false);
 	m_library->setVisible(false);
 
-	this->m_ui.lo_widgetholder->addWidget(m_homeScreen.get());
+	m_ui.lo_widgetholder->addWidget(m_homeScreen.get());
 
 	connect(m_library.get(), &Library::gameSelected, this, &VGTrackerMainWindow::ShowGameInfo);
 	connect(m_library.get(), &Library::addGame, this, &VGTrackerMainWindow::ShowAddGame);
@@ -30,14 +30,14 @@ VGTrackerMainWindow::VGTrackerMainWindow(QWidget *parent)
 	connect(m_homeScreen.get(), &HomeScreen::goLibrary, this, &VGTrackerMainWindow::ShowLibrary);
 	connect(m_homeScreen.get(), &HomeScreen::gameSelected, this, &VGTrackerMainWindow::ShowGameInfo);
 
-	connect(this->m_ui.bt_goHome, &QPushButton::clicked, this, &VGTrackerMainWindow::ShowHome);
-	connect(this->m_ui.bt_goLibrary, &QPushButton::clicked, this, [&] {
+	connect(m_ui.bt_goHome, &QPushButton::clicked, this, &VGTrackerMainWindow::ShowHome);
+	connect(m_ui.bt_goLibrary, &QPushButton::clicked, this, [&] {
 		SearchParams params;
 		this->ShowLibrary(0, params);
 	}
 	
 	);
-	connect(this->m_ui.bt_restyle, &QPushButton::clicked, this, &VGTrackerMainWindow::UpdateStyle);
+	connect(m_ui.bt_restyle, &QPushButton::clicked, this, &VGTrackerMainWindow::UpdateStyle);
 
 }
 
@@ -48,14 +48,14 @@ VGTrackerMainWindow::~VGTrackerMainWindow()
 void VGTrackerMainWindow::ShowLibrary(const bool& update, SearchParams params)
 {
 	if (update) {
-		this->m_library->FiltersUpdated(params);
+		m_library->FiltersUpdated(params);
 	}
 	ChangeWindow(m_library.get());
 }
 
 void VGTrackerMainWindow::ShowHome()
 {
-	this->m_homeScreen->RefreshGamesLists();
+	m_homeScreen->RefreshGamesLists();
 	ChangeWindow(m_homeScreen.get());
 }
 
@@ -73,17 +73,17 @@ void VGTrackerMainWindow::ShowEditGame(Videogame* videogame)
 
 void VGTrackerMainWindow::ChangeWindow(QWidget * windowToShow)
 {
-	auto previousWindow = this->m_ui.lo_widgetholder->itemAtPosition(0, 0)->widget();
+	auto previousWindow = m_ui.lo_widgetholder->itemAtPosition(0, 0)->widget();
 	if (previousWindow != windowToShow) {
 		previousWindow->setVisible(false);
-		this->m_ui.lo_widgetholder->replaceWidget(previousWindow, windowToShow);
+		m_ui.lo_widgetholder->replaceWidget(previousWindow, windowToShow);
 		windowToShow->setVisible(true);
 	}
 }
 
 void VGTrackerMainWindow::ShowGameInfo(const std::string & title)
 {
-	this->m_gameInfo->LoadGame(title);
+	m_gameInfo->LoadGame(title);
 	ChangeWindow(m_gameInfo.get());
 	m_gameInfo->setVisible(true);
 }

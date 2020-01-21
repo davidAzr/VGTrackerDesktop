@@ -7,13 +7,13 @@ CoverListItem::CoverListItem(QWidget* _parent, const std::string& title)
 {
 	m_ui.setupUi(this);
 	QFont nunito = Fonts::GetFont(Fonts::FontNames::NunitoExtraBold);
-	this->m_ui.lb_name->setFont(nunito);
+	m_ui.lb_name->setFont(nunito);
 	std::string transformedTitle = TransformTitleToFilename(title);
 	std::string coverFile = "designResources/covers/" + transformedTitle + ".jpg";
 	QPixmap p(coverFile.c_str()); // load pixmap
 
 	int pixmapWog = p.width();
-	auto maxH = this->m_ui.lb_coverImage->maximumHeight();
+	auto maxH = m_ui.lb_coverImage->maximumHeight();
 	auto scaledPixmap = p.scaledToHeight(maxH, Qt::SmoothTransformation);
 	int pixmapWsc = scaledPixmap.width();
 	m_ui.lb_coverImage->setMaximumWidth(pixmapWsc);
@@ -28,6 +28,6 @@ CoverListItem::~CoverListItem()
 }
 std::string CoverListItem::GetTitle()
 {
-	return this->m_ui.lb_name->text().toStdString();
+	return m_ui.lb_name->text().toStdString();
 }
 

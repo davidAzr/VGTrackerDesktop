@@ -6,50 +6,50 @@
 Library::Library(QWidget *parent)
 	: QWidget(parent)
 {
-	this->m_ui.setupUi(this);
+	m_ui.setupUi(this);
 
-	connect(this->m_ui.lw_library, &QListWidget::itemClicked, this, &Library::lw_gameSelected);
-	connect(this->m_ui.bt_addGame, &QPushButton::clicked, this, &Library::bt_addGameClicked);
+	connect(m_ui.lw_library, &QListWidget::itemClicked, this, &Library::lw_gameSelected);
+	connect(m_ui.bt_addGame, &QPushButton::clicked, this, &Library::bt_addGameClicked);
 
 	QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect();
 	shadowEffect->setBlurRadius(20);
 	QColor shadowColor;
 	shadowColor.setNamedColor("black");
 	shadowEffect->setColor(shadowColor);
-	this->m_ui.lb_library->setGraphicsEffect(shadowEffect);
+	m_ui.lb_library->setGraphicsEffect(shadowEffect);
 
 	shadowEffect = new QGraphicsDropShadowEffect();
 	shadowEffect->setBlurRadius(30);
 	shadowColor.setNamedColor("black");
 	shadowEffect->setColor(shadowColor);
-	this->m_ui.fr_filtersHolder->setGraphicsEffect(shadowEffect);
+	m_ui.fr_filtersHolder->setGraphicsEffect(shadowEffect);
 
 	QFont nunito = Fonts::GetFont(Fonts::FontNames::NunitoExtraBold);
 	nunito.setPointSize(9);
-	this->m_ui.ck_favourite->setFont(nunito);
-	this->m_ui.ck_launched->setFont(nunito);
-	this->m_ui.lb_order->setFont(nunito);
-	this->m_ui.cb_order->setFont(nunito);
-	this->m_ui.le_searchBar->setFont(nunito);
-	this->m_ui.ck_favourite->setFont(nunito);
-	this->m_ui.ck_launched->setFont(nunito);
-	this->m_ui.lb_order->setFont(nunito);
-	this->m_ui.cb_order->setFont(nunito);
-	this->m_ui.le_searchBar->setFont(nunito);
+	m_ui.ck_favourite->setFont(nunito);
+	m_ui.ck_launched->setFont(nunito);
+	m_ui.lb_order->setFont(nunito);
+	m_ui.cb_order->setFont(nunito);
+	m_ui.le_searchBar->setFont(nunito);
+	m_ui.ck_favourite->setFont(nunito);
+	m_ui.ck_launched->setFont(nunito);
+	m_ui.lb_order->setFont(nunito);
+	m_ui.cb_order->setFont(nunito);
+	m_ui.le_searchBar->setFont(nunito);
 	nunito.setPointSize(12);
-	this->m_ui.bt_addGame->setFont(nunito);
+	m_ui.bt_addGame->setFont(nunito);
 	nunito.setPointSize(13);
-	this->m_ui.lb_noGames->setFont(nunito);
+	m_ui.lb_noGames->setFont(nunito);
 	//nunito.setPointSize(17);
-	//this->m_ui.lb_title->setFont(nunito);
+	//m_ui.lb_title->setFont(nunito);
 	
 	this->RefreshGamesList();
 	
 	// Filters
-	connect(this->m_ui.le_searchBar, &QLineEdit::returnPressed, this, qOverload<>(&Library::FiltersUpdated));
-	connect(this->m_ui.ck_favourite, &QCheckBox::clicked, this, qOverload<>(&Library::FiltersUpdated));
-	connect(this->m_ui.ck_launched, &QCheckBox::clicked, this, qOverload<>(&Library::FiltersUpdated));
-	connect(this->m_ui.cb_order, qOverload<int>(&QComboBox::currentIndexChanged), this, qOverload<>(&Library::FiltersUpdated));
+	connect(m_ui.le_searchBar, &QLineEdit::returnPressed, this, qOverload<>(&Library::FiltersUpdated));
+	connect(m_ui.ck_favourite, &QCheckBox::clicked, this, qOverload<>(&Library::FiltersUpdated));
+	connect(m_ui.ck_launched, &QCheckBox::clicked, this, qOverload<>(&Library::FiltersUpdated));
+	connect(m_ui.cb_order, qOverload<int>(&QComboBox::currentIndexChanged), this, qOverload<>(&Library::FiltersUpdated));
 }
 
 Library::~Library()
@@ -57,10 +57,10 @@ Library::~Library()
 }
 
 void Library::RefreshGamesList(std::vector<Videogame> libraryGames) {
-	this->m_ui.lw_library->clear();
+	m_ui.lw_library->clear();
 	if (libraryGames.size() == 0) {
-		this->m_ui.lw_library->setVisible(false);
-		this->m_ui.lb_noGames->setVisible(true);
+		m_ui.lw_library->setVisible(false);
+		m_ui.lb_noGames->setVisible(true);
 	}
 	else {
 		std::for_each(begin(libraryGames), end(libraryGames),
@@ -80,8 +80,8 @@ void Library::RefreshGamesList(std::vector<Videogame> libraryGames) {
 		}
 		);
 
-		this->m_ui.lb_noGames->setVisible(false);
-		this->m_ui.lw_library->setVisible(true);
+		m_ui.lb_noGames->setVisible(false);
+		m_ui.lw_library->setVisible(true);
 	}
 }
 
@@ -91,7 +91,7 @@ void Library::RefreshGamesList() {
 
 void Library::lw_gameSelected()
 {
-	std::string selectedGameTitle = dynamic_cast<CoverListItem*>(this->m_ui.lw_library->itemWidget(this->m_ui.lw_library->currentItem()))->GetTitle();
+	std::string selectedGameTitle = dynamic_cast<CoverListItem*>(m_ui.lw_library->itemWidget(m_ui.lw_library->currentItem()))->GetTitle();
 	emit gameSelected(selectedGameTitle);
 }
 

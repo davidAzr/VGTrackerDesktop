@@ -9,7 +9,7 @@ HeartButton::HeartButton(QWidget *parent)
 	connect(this, &QPushButton::pressed, this, [&] {this->setIconSize(QSize(48, 48)); });
 	connect(this, &QPushButton::released, this, [&] {
 		this->setIconSize(QSize(52, 52)); 
-		if (this->m_favourited) {
+		if (m_favourited) {
 			this->setIcon(m_heart);
 		}
 	});

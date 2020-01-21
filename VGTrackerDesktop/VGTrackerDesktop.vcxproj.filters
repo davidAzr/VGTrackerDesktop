@@ -64,6 +64,15 @@
     <ClCompile Include="heartbutton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="notelistitem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="notelist.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="iconbutton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="coverlistitem.h">
@@ -90,6 +99,15 @@
     <QtMoc Include="heartbutton.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="notelistitem.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="notelist.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="iconbutton.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="coverListItem.ui">
@@ -111,6 +129,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="homescreen.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="noteListItem.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
