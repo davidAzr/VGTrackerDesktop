@@ -107,6 +107,8 @@
     <ClCompile Include="iconbutton.cpp" />
     <ClCompile Include="library.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="note.cpp" />
+    <ClCompile Include="notedb.cpp" />
     <ClCompile Include="notelist.cpp" />
     <ClCompile Include="notelistitem.cpp" />
     <ClCompile Include="vgtrackermainwindow.cpp" />
@@ -143,6 +145,8 @@
     <QtMoc Include="notelistitem.h" />
     <QtMoc Include="notelist.h" />
     <QtMoc Include="iconbutton.h" />
+    <ClInclude Include="note.h" />
+    <ClInclude Include="notedb.h" />
     <ClInclude Include="videogame.h" />
     <ClInclude Include="videogamedb.h" />
   </ItemGroup>

@@ -10,6 +10,7 @@ GameInfo::GameInfo(QWidget *parent)
 
 	connect(m_ui.bt_editGame, &QPushButton::clicked, this, &GameInfo::bt_editGame);
 	connect(m_ui.bt_favourite, &QPushButton::clicked, this, &GameInfo::bt_favouriteClicked);
+	connect(m_ui.bt_addNote, &QPushButton::clicked, this, &GameInfo::bt_addNoteClicked);
 
 	QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect();
 	shadowEffect->setBlurRadius(40);
@@ -62,39 +63,7 @@ GameInfo::GameInfo(QWidget *parent)
 	newNoteColor.setNamedColor("white");
 	m_ui.te_newNote->setTextColor(newNoteColor);
 	
-
-	//std::string itemNameStr = videogame.GetTitle();
-	NoteListItem* newRealItem = new NoteListItem(this);
-	shadowEffect = new QGraphicsDropShadowEffect();
-	shadowEffect->setBlurRadius(40);
-	shadowColor.setNamedColor("black");
-	shadowEffect->setColor(shadowColor);
-	//newRealItem->setGraphicsEffect(shadowEffect);
-	QListWidgetItem* newItem = new QListWidgetItem();
-	newItem->setSizeHint(newRealItem->sizeHint());
-	m_ui.lw_noteList->addItem(newItem);
-	m_ui.lw_noteList->setItemWidget(newItem, newRealItem);
-
-	newRealItem = new NoteListItem(this);
-	newItem = new QListWidgetItem();
-	newItem->setSizeHint(newRealItem->sizeHint());
-	m_ui.lw_noteList->addItem(newItem);
-	m_ui.lw_noteList->setItemWidget(newItem, newRealItem);
-
-	newRealItem = new NoteListItem(this);
-	newItem = new QListWidgetItem();
-	newItem->setSizeHint(newRealItem->sizeHint());
-	m_ui.lw_noteList->addItem(newItem);
-	m_ui.lw_noteList->setItemWidget(newItem, newRealItem);
-
-	newRealItem = new NoteListItem(this);
-	newItem = new QListWidgetItem();
-	newItem->setSizeHint(newRealItem->sizeHint());
-	m_ui.lw_noteList->addItem(newItem);
-	m_ui.lw_noteList->setItemWidget(newItem, newRealItem);
-
-	m_ui.lw_noteList->ResizeToContents();
-
+	this->RefreshNoteList();
 }
 
 GameInfo::~GameInfo()
@@ -105,6 +74,22 @@ void GameInfo::LoadGame(const std::string & title)
 {
 	m_gameShown.Read(title);
 	UpdateGameInfo();
+}
+
+void GameInfo::RefreshNoteList()
+{
+	m_ui.lw_noteList->clear();
+	std::vector<Note> gameNotes = m_gameShown.GetAllNotes();
+
+	std::for_each(begin(gameNotes), end(gameNotes), [&] (Note note) {
+		NoteListItem* newRealItem = new NoteListItem(this, note);
+		QListWidgetItem* newItem = new QListWidgetItem();
+		newItem->setSizeHint(newRealItem->sizeHint());
+		m_ui.lw_noteList->addItem(newItem);
+		m_ui.lw_noteList->setItemWidget(newItem, newRealItem);
+		connect(newRealItem, &NoteListItem::deleted, this, &GameInfo::DeleteNote);
+	});
+	m_ui.lw_noteList->ResizeToContents();
 }
 
 void GameInfo::UpdateGameInfo()
@@ -122,6 +107,7 @@ void GameInfo::UpdateGameInfo()
 	std::replace(std::begin(coverFile), std::end(coverFile), ':', ';');
 	QPixmap p(coverFile.c_str()); // load pixmap
 	m_ui.lb_cover->setPixmap(p);
+	RefreshNoteList();
 	
 }
 
@@ -133,4 +119,20 @@ void GameInfo::bt_favouriteClicked() {
 	m_ui.bt_favourite->ToggleFavourited();
 	m_gameShown.ToggleFavourite();
 	m_gameShown.Update();
+}
+
+void GameInfo::bt_addNoteClicked() {
+	const std::string noteContent = m_ui.te_newNote->toPlainText().toStdString();
+	if (!noteContent.empty() && noteContent.size() < 500) {
+		Note note;
+		note.SetContents(noteContent);
+		note.SetGame(m_gameShown.GetTitle());
+		note.Save();
+		RefreshNoteList();
+	}
+}
+
+void GameInfo::DeleteNote(const Note& note) {
+	note.Delete();
+	this->RefreshNoteList();
 }

@@ -96,10 +96,14 @@
 
     .coverList::item {
         background: transparent;
+        border: none;
     }
 
         .coverList::item::selected {
             background: transparent;
+        }
+        .coverList::item::focus {
+            border: none;
         }
 
 .sidebar {

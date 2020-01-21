@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "videogamedb.h"
-
+#include "note.h"
 
 enum SearchOrder {
 	Alphabetic = 0,
@@ -50,6 +50,9 @@ public:
 	}
 	void Read(std::string title) {
 		*this = m_vgDb.Read(title);
+	}
+	std::vector<Note> GetAllNotes() {
+		return m_vgDb.AllNotes(m_title);
 	}
 	void Delete() {
 		m_vgDb.Delete(this);

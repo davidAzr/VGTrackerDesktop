@@ -72,6 +72,9 @@
           <layout class="QGridLayout" name="gridLayout_3">
            <item row="0" column="0">
             <widget class="NoteList" name="lw_noteList">
+             <property name="focusPolicy">
+              <enum>Qt::NoFocus</enum>
+             </property>
              <property name="frameShape">
               <enum>QFrame::NoFrame</enum>
              </property>

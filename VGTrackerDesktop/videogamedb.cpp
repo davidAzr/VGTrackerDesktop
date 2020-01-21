@@ -2,6 +2,7 @@
 #include "videogame.h"
 #include <string>
 
+
 VideogameDB::VideogameDB()
 {
 	m_conn = mysql_init(0);
@@ -22,10 +23,10 @@ bool VideogameDB::Save(Videogame * videogame)
 		std::string query = "INSERT INTO Videogame VALUES ('" + videogame->GetTitle() + "', '" + to + "', '" + videogame->GetReleaseDate() + "', CURDATE(), 0);";
 		const char* q = query.c_str();
 		int qstate = mysql_query(m_conn, q);
+		delete to, from;
 		if (!qstate) {
 			return true;
 		}
-		delete to, from;
 	}
 	return false;
 }
@@ -45,10 +46,10 @@ bool VideogameDB::Update(Videogame * videogame)
 		std::string query = "UPDATE Videogame SET summary='" + std::string(to) + "', releaseDate='" + videogame->GetSqlReleaseDate() + "', favourite='" + std::to_string(videogame->GetFavourite()) + "' WHERE title='" + videogame->GetTitle() + "';";
 		const char* q = query.c_str();
 		int qstate = mysql_query(m_conn, q);
+		delete to, from;
 		if (!qstate) {
 			return true;
 		}
-		delete to, from;
 	}
 	return false;
 }
@@ -84,6 +85,36 @@ Videogame VideogameDB::Read(std::string title) {
 	}
 	return videogame;
 }
+
+std::vector<Note> VideogameDB::AllNotes(std::string title) {
+	std::vector<Note> gameNotes;
+
+	MYSQL* conn;
+	conn = mysql_init(0);
+	conn = mysql_real_connect(conn, "localhost", "root", "MyNewPass", "testdb", 3306, NULL, 0);
+
+	if (conn) {
+		std::string query = "SELECT id, note, date, DATE_FORMAT(date, \"%M %D, %Y\"), game FROM Note WHERE game = '" + title + "';";
+		const char* q = query.c_str();
+		int qstate = mysql_query(conn, q);
+		if (!qstate) {
+
+			MYSQL_RES* res = mysql_store_result(conn);
+			MYSQL_ROW row;
+			while (row = mysql_fetch_row(res)) {
+				Note gameNote;
+				gameNote.SetGame(title);
+				if (row[0] != NULL) gameNote.SetId(std::string(row[0]));
+				if (row[1] != NULL) gameNote.SetContents(std::string(row[1]));
+				if (row[2] != NULL) gameNote.SetSqlPublishDate(std::string(row[2]));
+				if (row[3] != NULL) gameNote.SetPublishDate(std::string(row[3]));
+				gameNotes.push_back(gameNote);
+			}
+		}
+	}
+	return gameNotes;
+}
+
 
 std::vector<Videogame> VideogameDB::AllGames()
 {

@@ -5,6 +5,7 @@
 #include <mysql.h>
 
 class Videogame;
+class Note;
 struct SearchParams;
 
 
@@ -21,6 +22,7 @@ public:
 	bool Update(Videogame* videogame);
 	bool Delete(Videogame* videogame);
 	Videogame Read(std::string title);
+	std::vector<Note> AllNotes(std::string title);
 
 	static std::vector<Videogame> AllGames();
 	static std::vector<Videogame> Search(SearchParams filters);
